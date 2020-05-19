@@ -1,0 +1,5998 @@
+{
+	"info": {
+		"_postman_id": "b2737e2c-0c1c-4370-8ef7-dd3f41c07830",
+		"name": "Emarsys Developer Hub",
+		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "List Contact Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/query?{fieldId}={{{fieldId}}}&return={{return}}&excludeempty={{excludeempty}}&offset=0&limit=10000",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"query"
+							],
+							"query": [
+								{
+									"key": "{fieldId}",
+									"value": "{{{fieldId}}}"
+								},
+								{
+									"key": "return",
+									"value": "{{return}}"
+								},
+								{
+									"key": "excludeempty",
+									"value": "{{excludeempty}}"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10000"
+								}
+							]
+						},
+						"description": "Returns a list of the values of the specified field as well as the related contact identifiers (`id`).\n\n**Example:** The field identifier *1* returns the first names of all contacts.\n\n**Note:** Due to limitations of API specification languages, dynamic keys are not yet supported in query strings on the interactive demo page (**Try it out**)."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/getdata",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"getdata"
+							]
+						},
+						"description": "Returns the field values for the contacts specified by either their internal IDs or by a custom property.\n\nIt is recommended to use the `id` or `uid` fields to identify contacts in order to avoid conflicts when using a non-unique field, such as `email`."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contacts",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact?create_if_not_exists={{create_if_not_exists}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact"
+							],
+							"query": [
+								{
+									"key": "create_if_not_exists",
+									"value": "{{create_if_not_exists}}"
+								}
+							]
+						},
+						"description": "Updates multiple contacts, or creates them if they do not exist.\n\nIt is recommended to use the `id` or `uid` fields to identify contacts in order to avoid conflicts when using a non-unique field, such as `email`.\n\n**Notes:**\n- The maximum payload size is 8 MB, therefore the maximum number of new contacts per call depends on the amount of data per contact.\n- The maximum batch size is 1000 contacts per call.\n\n**Note:** Due to limitations of API specification languages, dynamic keys are indicated by curly brackets or by a regex pattern."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact"
+							]
+						},
+						"description": "Creates new contacts, returns their automatically generated unique identifier (`id`), and maps their data to the relevant fields using the respective field identifiers.\n\n**Notes:**\n- The maximum payload size is 10 MB, therefore the maximum number of new contacts per call depends on the amount of data per contact.\n- The maximum batch size is 1000 contacts per call.\n\n**Note:** Due to limitations of API specification languages, dynamic keys are indicated by curly brackets or by a regex pattern."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"delete"
+							]
+						},
+						"description": "Deletes a single contact.\n\n**Important:** This action cannot be reverted, and removes all existing data associated with the contact. To *unsubscribe* contacts, set their opt-in status to *false* instead.\n\n**Note:** Due to limitations of API specification languages, dynamic keys are indicated by curly brackets or by a regex pattern."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Internal Contact Identifiers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/query/:keyId=:keyValue",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"query",
+								":keyId=:keyValue"
+							],
+							"variable": [
+								{
+									"key": "keyId=:keyValue"
+								}
+							]
+						},
+						"description": "Returns the internal identifier of a contact by the specified field and its value."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Internal Contact Identifiers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/checkids",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"checkids"
+							]
+						},
+						"description": "Generates a list of existing contacts and errors indexed by the specified key identifier.\n\nErrors are collected in the following cases:\n- The provided key identifier is invalid\n- No contact is found\n- More than one contact is found with the same key value"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact Email History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/getcontacthistory",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"getcontacthistory"
+							]
+						},
+						"description": "Returns a list of email campaign launch data for the specified contacts in the specified timeframe (optional)."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fields",
+			"item": [
+				{
+					"name": "List Available Fields",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8d506b45-bae9-4082-a260-fb6851922dc0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{X-WSSE}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/field/translate/:languageId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"field",
+								"translate",
+								":languageId"
+							],
+							"variable": [
+								{
+									"key": "languageId",
+									"value": "en"
+								}
+							]
+						},
+						"description": "Generates a list of the available contact lists."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Field",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/field",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"field"
+							]
+						},
+						"description": "Creates a new field in the contact database. This Please note that you cannot create single- or multi-choice fields via the API, nor can you create more than one field at a time.\n\n**Note:** The endpoint replicates the functionality of the **Field Generator** in the Emarsys application. To manage fields, go to **Admin** > **Field Editor** > **New**."
+					},
+					"response": []
+				},
+				{
+					"name": "List Available Choices of a Single Field",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/field/:fieldID/choice/translate/:languageId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"field",
+								":fieldID",
+								"choice",
+								"translate",
+								":languageId"
+							],
+							"variable": [
+								{
+									"key": "fieldID"
+								},
+								{
+									"key": "languageId"
+								}
+							]
+						},
+						"description": "Generates a list of all available options for any given single- or multi-choice field."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Field Changes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/last_change",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"last_change"
+							]
+						},
+						"description": "Returns information about the latest change of the specified fields, inclucing the change timestamp, as well as the old and the current values."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Field",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/field/:fieldId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"field",
+								":fieldId"
+							],
+							"variable": [
+								{
+									"key": "fieldId"
+								}
+							]
+						},
+						"description": "Deletes a custom contact field.\n\n**Important:** This action cannot be reverted, and removes all existing contact data associated with the field."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Lists",
+			"item": [
+				{
+					"name": "List Contact Lists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist"
+							]
+						},
+						"description": "Returns a list of the available contact lists."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Contacts to a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/add",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"add"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Adds new contacts to an existing contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Rename a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/rename",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"rename"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Renames an existing contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Count Contacts in a Contact List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/count",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"count"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Returns the number of contacts in a contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Replace a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/replace",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"replace"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Overwrites an existing contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "List Contacts in a Contact List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId?offset=0&limit=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Returns a list of contacts and their identifiers (`id`) in a contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact Data in a Contact List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/data?fields={{fields}}&limit=&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"contacts",
+								"data"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "{{fields}}"
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Returns the data of the specified contacts in a contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Look Up a Contact in a Contact List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/:contactId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"contacts",
+								":contactId"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								},
+								{
+									"key": "contactId"
+								}
+							]
+						},
+						"description": "Looks up a specific contact in a contact list. If the list includes the contact, returns `true`, otherwise returns `false`."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Contacts from a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Removes contacts from an existing contact list.\n\n**Note:** At most 10,000 contacts can be deleted with each request."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/deletelist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contactlist",
+								":listId",
+								"deletelist"
+							],
+							"variable": [
+								{
+									"key": "listId"
+								}
+							]
+						},
+						"description": "Deletes a contact list.\n\n**Note:** Contacts in the list are not affetced."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segments",
+			"item": [
+				{
+					"name": "List Segments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{X-WSSE}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-WSSE",
+								"value": "{{text-wsse}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-WSSE",
+								"value": "UsernameToken Username=\"us_template_demo001\", PasswordDigest=\"M2QwNjVkNTdkOGMzOWRlOWNkYjVjMTQ5MTczZjUzMTFhNjFmMjBkZQ==\", Nonce=\"b42ae84e752c53d58e41f47227809c15\", Created=\"2019-08-14T15:28:05Z\"",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter"
+							]
+						},
+						"description": "Generates a list of segments."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Segment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter"
+							]
+						},
+						"description": "Creates a segment based on the specified contact and email behavior criteria.\n\n### Overview\nCritera are represented as JSON object nodes in the request body. The relationship between the nodes is defined by the following:\n- Grouping operators link filter conditions with a logical AND or OR operator using the `type` property.\n- The node hierarchy correspond to the structure of the filters.\n\nFor easier understanding of the nested contact criteria, see the configuration of filter conditions in the Emarsys application:\n\n![Filter conditions in the Emarsys application](https://raw.githubusercontent.com/emartech/developer-hub-public-assets/master/assets/images/filter-conditions.png \"Filter conditions in the Emarsys application\")\n\n### Node Structure\nNodes can either be conjunctive or a criteria nodes. The function of each node is defined in the `type` property.\n- **Conjunctive nodes:** Nodes with a grouping operator `and` or `or` establish the relationship between parent and children nodes, and do not have any other property.\n- **Criteria nodes:** Nodes with the `criteria` property define a filter condition.\n\n| Criterion Type | Mandatory Properties | Optional Properties |\n| --- | --- | --- |\n| Contact criteria | - field<br>- operator<br>- value ||\n| Behavior criteria | - criteria | - time_restriction |\n\nEither one contact or behavior criteria must be specified in the request. See the Request Body section for details.\n\n**Note:** Mobile behavior, geolocation, and Smart Insight criteria are not supported using the API at the moment."
+					},
+					"response": []
+				},
+				{
+					"name": "List Combined Segments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/combinedsegments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"combinedsegments"
+							]
+						},
+						"description": "Returns a list of all available combined segments."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Combined Segment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/combinedsegments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"combinedsegments"
+							]
+						},
+						"description": "Creates a new combined segment using two or more existing segments."
+					},
+					"response": []
+				},
+				{
+					"name": "Count Contacts in a Segment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/count",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter",
+								":segmentId",
+								"contacts",
+								"count"
+							],
+							"variable": [
+								{
+									"key": "segmentId"
+								}
+							]
+						},
+						"description": "Provides the number of contacts in the specified segment.\n\n**Note:** This endpoint does not return data immediately because it requires further processing."
+					},
+					"response": []
+				},
+				{
+					"name": "List Contacts in a Segment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts?limit=&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter",
+								":segmentId",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							],
+							"variable": [
+								{
+									"key": "segmentId"
+								}
+							]
+						},
+						"description": "Generates a list of contacts after a specific segment (filter) has been applied.\n\n**Note:** This endpoint does not return data immediately because it requires further processing."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Combined Segment Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/combinedsegments/:combinedSegmentId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"combinedsegments",
+								":combinedSegmentId"
+							],
+							"variable": [
+								{
+									"key": "combinedSegmentId"
+								}
+							]
+						},
+						"description": "Returns the details of a combined segment, such as its  segment definition and attributes."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Combined Segment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/combinedsegments/:combinedSegmentId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"combinedsegments",
+								":combinedSegmentId"
+							],
+							"variable": [
+								{
+									"key": "combinedSegmentId"
+								}
+							]
+						},
+						"description": "Updates the properties of an existing combined segment."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact Criteria in a Segment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contact_criteria",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter",
+								":segmentId",
+								"contact_criteria"
+							],
+							"variable": [
+								{
+									"key": "segmentId"
+								}
+							]
+						},
+						"description": "Updates the contact criteria of a specific segment."
+					},
+					"response": []
+				},
+				{
+					"name": "Look Up a Contact in a Segment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/:contactId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter",
+								":segmentId",
+								"contacts",
+								":contactId"
+							],
+							"variable": [
+								{
+									"key": "segmentId"
+								},
+								{
+									"key": "contactId"
+								}
+							]
+						},
+						"description": "Looks up a specific contact in a segment. If the segment includes the contact, returns `true`, otherwise returns `false`."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Segment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"filter",
+								":segmentId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "segmentId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Sources",
+			"item": [
+				{
+					"name": "List Contact Sources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/source",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"source"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Contact Source",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/source/create",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"source",
+								"create"
+							]
+						},
+						"description": "Creates and labels a new contact source. Sources are used to import contacts into the Emarsys database as well as to track the origin of contact data changes.\n\nContact sources can only be created through the API.\n\n**Important:** Contact sources and the internal contact `source_id` (field identifier *33*) are different entities. The `source_id` fields records how the contact was added, such as by manual entry, import, or using a registration form."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Contact Source",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/source/:sourceId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"source",
+								":sourceId"
+							],
+							"variable": [
+								{
+									"key": "sourceId"
+								}
+							]
+						},
+						"description": "Deletes an existing contact source."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forms",
+			"item": [
+				{
+					"name": "List Customer Forms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/form",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"form"
+							]
+						},
+						"description": "Generates a list of all available forms designed to collect data from contacts, such as registration forms in a web page."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email Campaigns",
+			"item": [
+				{
+					"name": "List Email Campaigns",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email?status={{status}}&launched={{launched}}&contactlist={{contactlist}}&showdeleted={{showdeleted}}&fromdate={{fromdate}}&todate={{todate}}&root_campaign_id={{root_campaign_id}}&template={{template}}&content_type={{content_type}}&campaign_type={{campaign_type}}&parent_campaign_id={{parent_campaign_id}}&behavior_channel={{behavior_channel}}&email_category={{email_category}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "{{status}}"
+								},
+								{
+									"key": "launched",
+									"value": "{{launched}}"
+								},
+								{
+									"key": "contactlist",
+									"value": "{{contactlist}}"
+								},
+								{
+									"key": "showdeleted",
+									"value": "{{showdeleted}}"
+								},
+								{
+									"key": "fromdate",
+									"value": "{{fromdate}}"
+								},
+								{
+									"key": "todate",
+									"value": "{{todate}}"
+								},
+								{
+									"key": "root_campaign_id",
+									"value": "{{root_campaign_id}}"
+								},
+								{
+									"key": "template",
+									"value": "{{template}}"
+								},
+								{
+									"key": "content_type",
+									"value": "{{content_type}}"
+								},
+								{
+									"key": "campaign_type",
+									"value": "{{campaign_type}}"
+								},
+								{
+									"key": "parent_campaign_id",
+									"value": "{{parent_campaign_id}}"
+								},
+								{
+									"key": "behavior_channel",
+									"value": "{{behavior_channel}}"
+								},
+								{
+									"key": "email_category",
+									"value": "{{email_category}}"
+								}
+							]
+						},
+						"description": "Returns a list of existing email campaigns. Filter the results by specifying a campaign by its identifier, set a date range, or use other query parameters.\n\n**Note:** It is recommended to list campaigns in shorter date ranges when requesting a large amount of data."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email"
+							]
+						},
+						"description": "Creates an email campaign with the specified parameters.\n\n**Note:** For further information about creating emails with transaction-specific content, see Using the API to Create Triggered Messages and Capturing Transactional Content."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Campaign Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId?raw={{raw}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId"
+							],
+							"query": [
+								{
+									"key": "raw",
+									"value": "{{raw}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns the details of an email campaign, such as content and attributes, including personalized text and HTML source."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Campaign Languages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/language",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"language"
+							]
+						},
+						"description": "Returns a list of languages available for creating emails."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Campaign Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/emailcategory",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"emailcategory"
+							]
+						},
+						"description": "Returns the alphabetized list of email campaign categories available for creating email campaigns."
+					},
+					"response": []
+				},
+				{
+					"name": "Version an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/version",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"version"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Creates a new child version of the specified email campaign.\n\nVersioned campaigns are optimal for A/B testing, and can be manipulated as a separate email campaign through the API."
+					},
+					"response": []
+				},
+				{
+					"name": "Finalize a Multi-language Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/finalize",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"finalize"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "During A/B testing of multi-language campaigns, two versions are sent to contacts with the same mother tongue living in the same country. Once the A/B testing is completed, finalize the email campaign using this endpoint. Contacts in the specified countries will then receive the successful version in their own languages.\n\n**Note:** This endpoint is only available if the *Multi-language Email Campaigns* feature is enabled for your account. Contact Emarsys Support for details."
+					},
+					"response": []
+				},
+				{
+					"name": "Copy an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/copy?name={{name}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"copy"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Makes a copy of an email campaign, optionally with a new name."
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/patch",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"patch"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Updates an email campaign with the specified parameters.\n\n**Note:** Already launched campaigns cannot be modified."
+					},
+					"response": []
+				},
+				{
+					"name": "Blacklist Emails and Domains",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/blacklist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"blacklist"
+							]
+						},
+						"description": "Adds emails and domains to the internal blacklist. Blacklisted entries are not participating in any campaign.\n\n**Note:** The maximum batch size is 1000 emails and 1000 domains per call."
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Email Campaign Recipient Source",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/updatesource",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"updatesource"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "You must set the **Recipient source** setting to **Using the API** in the Emarsys application to assign a segment or a contact list to an email campaign using the API.\n\nThe recipient source is filtered by the specified segment or contact list. To narrow the recipient list further, provide exclusion filters.\n\n**Important:** If you do not explicitly set any exclusion filters, all existing exclusions are removed from the campaign.\n\n**Warning:** The recipient source parameter can only be changed once if the previous value was set to **Using the API**."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Campaign Launch",
+			"item": [
+				{
+					"name": "Preview Email Campaign Contents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/preview",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"preview"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns the HTML, plain text or mobile version of the email."
+					},
+					"response": []
+				},
+				{
+					"name": "Send a Test Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sendtestmail",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sendtestmail"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Sends a test email to the specified recipient list, segment, or contact list. Recipient list types cannot be combined.\n\n**Note:** The number of recipients must be less than 50. Additional recipients are ignored."
+					},
+					"response": []
+				},
+				{
+					"name": "Launch an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/launch",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"launch"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Initiates the launch of an existing email campaign. The actual launch takes place once the request is processed.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier. Poll the Get Email Campaign Data endpoint to track the launch progress. Check the `api_status` and `api_error` parameters for the current status.\n\n**Tip:** Configure the recipient segment or contact list using the Create an Email Campaign endpoint.\n\n**Note:** A successful launch request may result in a failed launch, if the campaign is not properly configured. For example, a missing email subject or unspecified recipient list prevents a launch."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Delivery Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/getdeliverystatus",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"getdeliverystatus"
+							]
+						},
+						"description": "Returns the delivery status of an email campaign."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Email Response Metrics and Deliverability",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/responses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"responses"
+							]
+						},
+						"description": "Returns a list of contacts based on the requested response metrics or deliverability status. For example, it queries all contacts in the specified campaign who opened emails in the specified timeframe.\n\nFor more information about response metrics and deliverability, see [Email Response Metrics Explained](https://help.emarsys.com/hc/en-us/articles/115005132729).\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.. Poll the Get Email Response Metrics and Deliverability Results endpoint using the returned query identifier for metrics and deliverability data.\n\n**Note:** This endpoint is rate limited and accepts only one request per minute."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Email Response Metrics and Deliverability Results",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:queryId/responses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":queryId",
+								"responses"
+							],
+							"variable": [
+								{
+									"key": "queryId"
+								}
+							]
+						},
+						"description": "Returns a list of contacts requested on the Query Email Response Metrics and Deliverability endpoint.\n\nFor more information about response metrics and deliverability, see [Email Response Metrics Explained](https://help.emarsys.com/hc/en-us/articles/115005132729).\n\n**Note:** The results are available for two hours after the initial query."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Response Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/responsesummary?launch_id={{launch_id}}&start_date={{start_date}}&end_date={{end_date}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"responsesummary"
+							],
+							"query": [
+								{
+									"key": "launch_id",
+									"value": "{{launch_id}}"
+								},
+								{
+									"key": "start_date",
+									"value": "{{start_date}}"
+								},
+								{
+									"key": "end_date",
+									"value": "{{end_date}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns the summary of the responses of a launched, paused, activated or deactivated email campaign.\n\nAcquire the necessary contact identifiers on the Get Email Response Metrics and Deliverability Results endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "List Email Campaign Launches",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/getlaunchesofemail",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"getlaunchesofemail"
+							]
+						},
+						"description": "Lists all launches of an email campaign, including the launch identifier, date, and status of each individual launch."
+					},
+					"response": []
+				},
+				{
+					"name": "List Personalization Alternate Texts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/personalization",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"personalization"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns the list of email personalization fields with alternative values, and shows if personalization is omitted."
+					},
+					"response": []
+				},
+				{
+					"name": "Get the URL of a Launched Email Campaign Content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/url",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"url"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns the URL of a launched email campaign’s content for the specified contact."
+					},
+					"response": []
+				},
+				{
+					"name": "Unsubscribe a Contact from an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/unsubscribe",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"unsubscribe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media Database",
+			"item": [
+				{
+					"name": "List Media Database Folders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/folder?folder={{folder}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"folder"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "{{folder}}"
+								}
+							]
+						},
+						"description": "Returns a list of all folders in the Media Database.\n\n**Tip:** Use the `folder` query parameter to only list subfolders of a specific folder."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Media Database Folder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/folder",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"folder"
+							]
+						},
+						"description": "Creates a new folder in a specified existing parent folder in the Media Database."
+					},
+					"response": []
+				},
+				{
+					"name": "List Media Database Files",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/file?folder={{folder}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"file"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "{{folder}}"
+								}
+							]
+						},
+						"description": "Returns a list of all media files in the Media Database.\n\n**Tip:** Use the `folder` query parameter to only list files in a specific folder."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a File into the Media Database",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/file",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"file"
+							]
+						},
+						"description": "Uploads a file to the Media Database in base64 encoding.\n\n**Notes**\n- File names are case sensitive.\n- The upload limit is 1 MB for images, 8 MB for documents, and 4 MB for other file formats.\n- Refer to uploaded files in email campaigns in the following format:\n  ```\n  <img src=\"/custloads/{customer_identifier}/{filename.extension}\">\n  ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Media Database File",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/file/:fileId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"file",
+								":fileId"
+							],
+							"variable": [
+								{
+									"key": "fileId"
+								}
+							]
+						},
+						"description": "Returns the properties of a media file in the Media Database."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Media Database File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/file/:fileId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"file",
+								":fileId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "fileId"
+								}
+							]
+						},
+						"description": "Removes a media file from the Media Database."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conditional Text Rules",
+			"item": [
+				{
+					"name": "List Conditional Text Rules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/condition",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"condition"
+							]
+						},
+						"description": "Returns a list of conditional text rules. Use conditional text to tailor the content of an email campain to your customers."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email Templates",
+			"item": [
+				{
+					"name": "List Email Templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/templates",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"templates"
+							]
+						},
+						"description": "Returns a list of all templates, including their names and identifiers."
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Email Template",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/templates/:templateId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"templates",
+								":templateId"
+							],
+							"variable": [
+								{
+									"key": "templateId"
+								}
+							]
+						},
+						"description": "Returns the data of an email template."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracked Links",
+			"item": [
+				{
+					"name": "List Tracked Links in an Email Campaign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/trackedlinks/:linkId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"trackedlinks",
+								":linkId"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "linkId"
+								}
+							]
+						},
+						"description": "Returns a list of all tracked links of an email campaign."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Tracked Link in an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/trackedlinks/:linkId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"trackedlinks",
+								":linkId"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "linkId"
+								}
+							]
+						},
+						"description": "Updates the URL parameter of a tracked link in an email campaign.\n\n**Note:** Template-based campaigns require that you update the section as well as the tracked link, as the link is also stored in the section."
+					},
+					"response": []
+				},
+				{
+					"name": "List Link Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/settings/linkcategories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"settings",
+								"linkcategories"
+							]
+						},
+						"description": "Returns the categories of links used in emails based on their type."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Tracked Link in an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/trackedlinks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"trackedlinks"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Creates a tracked link in the specified section of an email campaign.\n\n**Note:** Only template-based email campaigns have sections. The section identifier (`section_id`)of batch email campaigns is *1*."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Tracked Link in an Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/deletetrackedlinks/:linkId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"deletetrackedlinks",
+								":linkId"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "linkId"
+								}
+							]
+						},
+						"description": "Deletes a specific or all tracked links in an email campaign.\n\n**Note:** Provide the `linkId` path parameter to stop tracking a specific link."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "List Sections in a Template-based Email Campaign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sections"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Returns a list of sections used in the specified template-based email campaign."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Section in a Template-based Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sections"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								}
+							]
+						},
+						"description": "Adds a new section to a template-based email campaign with the specified parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Section of a Template-based Email Campaign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections/:sectionId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sections",
+								":sectionId"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "sectionId"
+								}
+							]
+						},
+						"description": "Returns the details of a section of a template-based email campaign."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Section of a Template-based Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections/:sectionId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sections",
+								":sectionId"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "sectionId"
+								}
+							]
+						},
+						"description": "Updates a content section of a template-based email campaign using the specified parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Section from a Template-based Email Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections/:sectionId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"sections",
+								":sectionId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "emailId"
+								},
+								{
+									"key": "sectionId"
+								}
+							]
+						},
+						"description": "Deletes a section from a template-based email campaign."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mail Stream",
+			"item": [
+				{
+					"name": "Query Mail Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/csv"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/rtm/mail_events/:eventType?from={{from}}&to={{to}}&email={{email}}&external_id={{external_id}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rtm",
+								"mail_events",
+								":eventType"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "{{from}}"
+								},
+								{
+									"key": "to",
+									"value": "{{to}}"
+								},
+								{
+									"key": "email",
+									"value": "{{email}}"
+								},
+								{
+									"key": "external_id",
+									"value": "{{external_id}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "eventType"
+								}
+							]
+						},
+						"description": "Once an email is sent it typically generates one or more events, such as *bounce*, *open*, *click*, *spam complaint*, or *unsubscribe*. Analyze and track events to learn how recipients interact with your emails as well as to keep your contact database up-to-date.\n\n>**Note:** The maximum number of requests per hour is 1000.\n\nSending an email does not guarantee its delivery. A *bounce* event indicates that an email cannot be delivered. Query *bounce* and *sent* events to track whether the customer received the email.\n\n\n### Querying Events\nEach event type is available through its own resources. All resources work the same way and accept the same parameters.\n\n**Tip:** It is good industry practice to download event data at regular intervals (for example every 2 hours).\n\n#### Querying Sent Emails\n\nUse the *sent* event type to check a given timeframe if and when a mail was forwarded by the system to a specific recipient. Querying sent events is only offered to support a fast lookup option for a specific recipient. It is not intended for querying all sent recipients for a specific timeframe, because this information is avilable on user side.\n\n#### Querying Bounces\n\nQuerying bounces adds an additional column to the response, called `bounce_code`. This column indicates the encountered bounce type, as follows:\n\n| Bounce Type | Description |\n| --- | --- |\n| block | Block bounce |\n| hard | Hard bounce |\n| soft | Soft bounce |\n| suppressed | Sending suppression due to filtering |\n| invalid_address | Mails not sent due to an invalid email address |\n\n#### Querying Clicks\n\nReturns an additional `url` column that contains the target URL of the clicked link.\n\n### Querying Unsubscribes\n\nReturns an additional `field_id` column that contains the identifier of the unsubscribe field. It is useful if more than one unsubscribe field is configured for the account (the default value is zero).\n\n\n### Connecting Event Data to Contact Data\nUse the `external_id` field to connect the mail event data to the contact data on your end. The content of the field is unique for each recipient on your side and will be delivered along with other fields when querying mail events.\n\nThe `external_id` field also allows you to uniquely identify a recipient, if the email address alone is not sufficient to do so.\n\nExample use cases include the following:\n- The same contact has multiple accounts in your environment.\n- The same contact registers for an account, unregisters and registers again with the same email address.\n\n#### Using External Identifiers\n1. Add the `external_id` field to the **Assigned Fields** of the respective email template.\n2. Pass the `external_id` together with other fields on appending data to the respective mail stream.\n\n\n## Response\n\n### Format\n\nEvents are returned in the following CSV format:\n\n| Column | Description |\n| --- | --- |\n| mail_stream_id | The identifier of the mail stream the mail was sent through. |\n| recipient_id | The identifier of the recipient to whom the mail was sent (the same as returned when posting the recipients). |\n| timestamp | The time of the event as a ISO8601 timestamp. |\n| email | The email address of the recipient. |\n| external_id | Additional identifier to be included in the recipient data for linking the mail event data to the recipient data on your end. |\n\n### Compression\n\nIt is good practice to use compression in order to save bandwidth and download data faster. If your system handles gzip compression, include the HTTP header `Accept-Encoding: gzip` in the request. If requested, the response is compressed and the HTTP header `Content-Encoding: gzip` is present in the response.\n\n### Examples\n\n#### Sent Events\n```\nmail_stream_id,recipient_id,timestamp,email,external_id\nTest_MX_V4,506801269562671104,2016-07-12 10:09:33.343+02,john.doe@example.com,\nTest_MX_V4,290628492129730560,2016-07-12 10:14:11.675+02,john.doe@example.com,\nAT_MV_V2,506801237568520192,2016-07-12 09:37:47.5+02,john.doe@example.com,\nAT_MV_V2,218570862205337600,2016-07-12 09:38:34.732+02,john.doe@example.com,\nAT_MV_V2,74455675136114688,2016-07-12 09:39:32.788+02,john.doe@example.com,\nAT_MV_V2,506801241527943168,2016-07-12 09:41:41.992+02,john.doe@example.com,\nAT_MV_V2,74455678726438912,2016-07-12 09:43:06.954+02,john.doe@example.com,\n```\n\n#### Bounce Events\n```\nmail_stream_id,recipient_id,timestamp,email,external_id,bounce_code\nAT_Test1_20140312_GU,1000,2014-03-24T10:15:00+02,john.doe@example.com,4948335,block\nAT_Test4_20140312_GU,1001,2014-03-24T10:25:00+02,jane.doe@example.com,1877213,suppressed\n```\n\n#### Open Events\n```\nmail_stream_id,recipient_id,timestamp,email,external_id,recipient_user_agent,recipient_device,recipient_operating_system,recipient_ip\nAT_Test1_20140312_GU,1000,2014-03-24T10:15:00+02,john.doe@example.com,4948335,Firefox 36.0,Personal computer,Linux (Ubuntu),192.168.24.2\nAT_Test4_20140312_GU,1001,2014-03-24T10:25:00+02,jane.doe@example.com,1877213,Firefox 36.0,Personal computer,Linux (Ubuntu),192.168.24.2\n```\n\n#### Click Events\n```\nmail_stream_id,recipient_id,timestamp,email,external_id,url,recipient_user_agent,recipient_device,recipient_operating_system,recipient_ip\nAT_Test1_20140312_GU,1000,2014-03-24T10:15:00+02,john.doe@example.com,4948335,http://example.com,Firefox 36.0,Personal computer,Linux (Ubuntu),192.168.24.2\nAT_Test4_20140312_GU,1001,2014-03-24T10:25:00+02,jane.doe@example.com,1877213,http://example.com,Firefox 36.0,Personal computer,Linux (Ubuntu),192.168.24.2\n```\n\n#### Unsubscribe Events\n```\nmail_stream_id,recipient_id,timestamp,email,external_id,field_id\nAT_Test1_20140312_GU,1000,2014-03-24T10:15:00+02,john.doe@example.com,4948335,0\nAT_Test4_20140312_GU,1001,2014-03-24T10:25:00+02,jane.doe@example.com,1877213,0\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Append Data to Mail Stream",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/csv"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/csv"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rtm/mail_streams/:mailStreamId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rtm",
+								"mail_streams",
+								":mailStreamId"
+							],
+							"variable": [
+								{
+									"key": "mailStreamId"
+								}
+							]
+						},
+						"description": "Emails are sent by appending data to a mail stream. As a mail stream contains a snapshot of an email template, it only needs to inclue data specific to the recipient, such as their email address or first name.\n\n**Important:** This endpoint consumes a CSV file. Set the *Content-Type* HTTP header of the request to `text/csv`.\n\n\nWhen the request is processed, the data is validated. If the payload passes verification, the mails are queued for sending and the endpoint returns a new unique identifier for each recipient.\n\n### Limits\n\nAppending data to a mail stream is subject to the following limits.\n\n| Limit | Threshold |\n| --- | ---: |\n| Maximum number of recipient fields | 100 |\n| Maximum allowed characters per field name | 63 |\n| Maximum number of characters allowed for a single recipient record | 4000 |\n| Maximum number of recipients per request | 1000 |\n| Maximum total number cases in a mail template | 1000 |\n\n**Note:** Contact Emarsys support if these limits are not sufficient for your needs.\n\n### Request Example\nThis example request contains one valid and one invalid recipient record.\n\n```\nEMAIL,FIRSTNAME\n kaylee@example.com,Kaywinnet\n invalid@example.com\n```\n\n### Response Example\nThis example response contains one valid and one invalid recipient record.\n```\nline,recipient_id,error\n 2,995893849,\"\"\n 3,,\"Invalid number of columns.\"\n```\n\nRecipient records are validated in the request. Validation errors are returned in the response as follows:\n\n| Column | Description |\n| --- | --- |\n| error | Reason for the failure |\n| recipient_id | n/a |\n\nIf the record passes validation, the response contains the following:\n\n| Column | Description |\n| --- | --- |\n| error | n/a |\n| recipient_id | The numeric identifier of the recipient generated automatically by the system |\n\n**Important:** Regardless of the success or failure of the validation, the `line` column always contains the line number where the related recipient record started within the request. According to the request example, the first recipient record starts at line *2* and the second recipient record at line *3*.\n\n**Do not** interpret the values in the `line` column as the recipient record counter.\n- The entry order in the response is not guaranteed, because the location is clearly defined by the line number.\n- Using line breaks within a single field or invalid text qualifiers may result in several records being parsed as one.\n\n### Recipient-specific Attachments\n\nIn typical use, attachments are added to a template are automatically included for all recipients. If recipient-specific attachments are required, it is possible to include them in the request to the mail stream endpoint.\n\nTo do so, send your request in JSON in the body, and change the `Content-Type` HTTP header to `application/json`.\n\n**Note:** It is possible to mix template and recipient attachments. If they share the same name, the recipient attachment overrides the template.\n\n**Important:** The content of the attachment must be base64-encoded.\n\n#### Request Example\n\n```json\n{\n   \"recipients\": [\n       {\n           \"fields\": {\n               \"EMAIL\": \"kaylee@example.com\",\n               \"FIRSTNAME\": \"Kaywinnet\"\n           },\n           \"attachments\": [\n               {\n                   \"name\": \"receipt.pdf\",\n                   \"content_type\": \"application/pdf\",\n                   \"content\": \"fVIOdiIMBLWUKFq807SGJaZyazE6zfBeBT4geniY2AlfVuEVJFRDha/Z4sBRJbHlFP5TqOBov8Ex530RC+q6Y8m3ai5VwPUpsQ2oD0CeRrJNGU+ZdDxPlzNXjaNA2endrukkKJyKyV4ueZxnE/GLQe+tkr1AxHQ4XJKH\"\n               }\n           ]\n       }\n   ]\n}\n```\n\n#### Response Example\n\n```json\n{\n    \"result\": [\n        {\n            \"recipient_id\": \"123456789\",\n            \"line\": 1\n        }\n    ]\n}\n```"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2a52cbfb-b6bc-4cfc-90b3-ccef57004ccc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "237a505c-519c-49a2-9e95-1f0930cee044",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "External Events",
+			"item": [
+				{
+					"name": "List External Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/event/:eventId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"event",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId"
+								}
+							]
+						},
+						"description": "Lists external event names and identifiers. Use the returned identifiers to trigger emails or programs."
+					},
+					"response": []
+				},
+				{
+					"name": "List Uses of an External Event",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/event/:eventId/usages",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"event",
+								":eventId",
+								"usages"
+							],
+							"variable": [
+								{
+									"key": "eventId"
+								}
+							]
+						},
+						"description": "Lists the identifiers of the programs and emails that the specified external event triggers. Returns a program identifier and at least one email identifier.\n\n**Note:** Programs and emails must be in the *launched* state in order to appear."
+					},
+					"response": []
+				},
+				{
+					"name": "Update an External Event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/event/:eventId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"event",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId"
+								}
+							]
+						},
+						"description": "Updates the name of an external event."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an External Event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/event",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"event"
+							]
+						},
+						"description": "Creates an external event with the specified name in order to allow your external program, such as a CMS or CRM to trigger an Emarsys event."
+					},
+					"response": []
+				},
+				{
+					"name": "Trigger External Events",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": {\r\n    \"global\": {\r\n      \"appointmentid\": 29020202,\r\n      \"bookingnumber\": 10029020202\r\n    }\r\n  },\r\n  \"external_id\": \"dylan.wolter@emarsys.com\",\r\n  \"key_id\": 3\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/event/:eventId/trigger",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"event",
+								":eventId",
+								"trigger"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "4359"
+								}
+							]
+						},
+						"description": "Triggers a named external event for a specified contact.\n\n### Prerequisites\n- A custom contact field `externalId` must exist as the external identifier. To create one, use the Create a Field endpoint or go to **Admin** > **Field Editor** > **New** in the Emarsys application.\n- The field identifier is required to create contacts with custom fields. List the field identifiers at the List Available Fields endpoint or go to **Admin** > **Field Editor** in the Emarsys application.\n\n**Notes**\n\n- The maximum number of objects per request is 1000.\n- For further information about creating emails with transaction-specific content, see [Creating Transactional Emails](https://help.emarsys.com/hc/en-us/articles/115004090589#external_data_for_transactional_emails).\n\n### Checking Results\nThere are two ways to check if the program was successfully triggered:\n- In the Emarsys application, go to the **Analysis** page of the program and verify that the number of emails sent out has increased.\n- Include a test customer in the contact list and check if it receives the relevant email.\n\n### Example Use Case\n\nWhen a customer clicks the \"I want to learn more about this product\" button in your webshop, call this endpoint to trigger the associated program, which sends out more information about your product."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an External Event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/event/:eventId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"event",
+								":eventId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "eventId"
+								}
+							]
+						},
+						"description": "Deletes an external event.\n\n**Note:** Deleting an event has no effect on any programs or email campaigns linked to the event."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8e6c07dc-fe9f-4107-9824-f3449dd8a263",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "75c15eca-0395-43c8-80e5-bbd63f4116b2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Programs",
+			"item": [
+				{
+					"name": "List Program Resources in Use",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"api",
+								"v2",
+								"programresource"
+							],
+							"query": [
+								{
+									"key": "service_id",
+									"value": "{{service_id}}"
+								},
+								{
+									"key": "resource_id",
+									"value": "{{resource_id}}"
+								}
+							]
+						},
+						"description": "Returns a list of all external services and their resources available in the Automation Center for a customer."
+					},
+					"response": []
+				},
+				{
+					"name": "Start a Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs/entrypoints/:nodeType/resources/:resourceId/runs",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs",
+								"entrypoints",
+								":nodeType",
+								"resources",
+								":resourceId",
+								"runs"
+							],
+							"variable": [
+								{
+									"key": "nodeType"
+								},
+								{
+									"key": "resourceId"
+								}
+							]
+						},
+						"description": "Starts the progress of contacts through Automation Center programs at the specified entry point of the selected resource."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "793411d0-79ca-44ee-aaec-79899b9179a1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "57172c05-2741-4450-aa44-9dcb1392c60f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Contact and Email Data",
+			"item": [
+				{
+					"name": "Export Changed Contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/getchanges",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"getchanges"
+							]
+						},
+						"description": "Exports the specified fields of contacts that have been modified within a certain time period. The contacts must belong to the specified form or API source to be included.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.\n\nThe results are saved as a CSV file that you can access in multiple ways.\n- Exports flagged as `local` are stored on the Emarsys server that you can download via WebDAV or an API call.\n- Exports flagged as `ftp` can be accessed via FTP.\n\n**Implementation**\n\nYou can implement this method as follows:\n- Poll the Check Export Status endpoint to track the export status. When done, access the file at the Download Export Data endpoint.\n- Set the `notification_url` parameter to implement a callback mechanism. When the export is ready, a request is sent to the provided URL with the same payload as the Check Export Status response.\n\n**Notes**\n- For security reasons, the (S)FTP server IP address must be whitelisted on our server first.\n- WebDAV access must be enabled first, and requires authentication to use. For a WebDAV account or (S)FTP access, contact Emarsys support.\n\n**Example**\n```csv\nuser_id;First Name;Last Name;E-Mail;Company\n8019189;user3;test_import;test1@emarsys.com;\n49036141;user3;test_import;test1@emarsys.com;\n50123406;user3;test_import;test1@emarsys.com;\n85600590;user3;test_import;test1@emarsys.com;\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Export a Contact List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/getcontacts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"getcontacts"
+							]
+						},
+						"description": "Exports the specified fields of contacts from a contact list as a CSV file.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.\n\nThe results are saved as a CSV file that you can access in multiple ways.\n- Exports flagged as `local` are stored on the Emarsys server that you can download via WebDAV or an API call.\n- Exports flagged as `ftp` can be accessed via FTP.\n- Exports flagged as `sftp` can be accessed via SFTP.\n- Exports flagged as `mail` are sent to the specified address when ready.\n\n**Implementation**\n\nYou can implement this method as follows:\n- Poll the Check Export Status endpoint to track the export status. When done, access the file at the Download Export Data endpoint.\n- Set the `notification_url` parameter to implement a callback mechanism. When the export is ready, a request is sent to the provided URL with the same payload as the Check Export Status response.\n\n**Notes**\n- For security reasons, the (S)FTP server IP address must be whitelisted on our server first.\n- WebDAV access must be enabled first, and requires authentication to use. For a WebDAV account or (S)FTP access, contact Emarsys support.\n\n**Example**\n\n```csv\nFirst Name;Last Name;E-mail;Opt-in\nFname_1;Lname_1;testuser@example.com;True\nFname_2;Lname_2;testuser@example.com;True\nFname_3;Lname_3;testuser@example.com;True\nFname_4;Lname_4;testuser@example.com;True\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Export a Segment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/export/filter",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"export",
+								"filter"
+							]
+						},
+						"description": "Exports the specified fields of contacts from a segment as a CSV file.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.\n\nThe results are saved as a CSV file that you can access in multiple ways.\n- Exports flagged as `local` are stored on the Emarsys server that you can download via WebDAV or an API call.\n- Exports flagged as `ftp` can be accessed via FTP.\n- Exports flagged as `sftp` can be accessed via SFTP.\n- Exports flagged as `mail` are sent to the specified address when ready.\n\n**Implementation**\n\nYou can implement this method as follows:\n- Poll the Check Export Status endpoint to track the export status. When done, access the file at the Download Export Data endpoint.\n- Set the `notification_url` parameter to implement a callback mechanism. When the export is ready, a request is sent to the provided URL with the same payload as the Check Export Status response.\n\n**Notes**\n- For security reasons, the (S)FTP server IP address must be whitelisted on our server first.\n- WebDAV access must be enabled first, and requires authentication to use. For a WebDAV account or (S)FTP access, contact Emarsys support.\n\n**Example**\n\nAn example contact list export including first name, last name, email address and opt-in status results in the following CSV:\n```csv\nFirst Name;Last Name;E-mail;Opt-in\nFname_1;Lname_1;testuser@example.com;True\nFname_2;Lname_2;testuser@example.com;True\nFname_3;Lname_3;testuser@example.com;True\nFname_4;Lname_4;testuser@example.com;True\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Export Contact Registrations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/contact/getregistrations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact",
+								"getregistrations"
+							]
+						},
+						"description": "Exports the specified fields of contacts registered through an Emarsys form within the specified time period as a CSV file.\n\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.\n\nThe results are saved as a CSV file that you can access in multiple ways.\n- Exports flagged as `local` are stored on the Emarsys server that you can download via WebDAV or an API call.\n- Exports flagged as `ftp` can be accessed via FTP.\n\n**Implementation**\n\nYou can implement this method as follows:\n- Poll the Check Export Status endpoint to track the export status. When done, access the file at the Download Export Data endpoint.\n- Set the `notification_url` parameter to implement a callback mechanism. When the export is ready, a request is sent to the provided URL with the same payload as the Check Export Status response.\n\n**Notes**\n- For security reasons, the (S)FTP server IP address must be whitelisted on our server first.\n- WebDAV access must be enabled first, and requires authentication to use. For a WebDAV account or (S)FTP access, contact Emarsys support.\n\n**Example**\n```csv\nuser_id;First Name;Last Name;E-Mail;Company;last update\n135369573;user3;test_import;test1@emarsys.com;;\n171879718;user3;test_import;test1@emarsys.com;;\n183453150;user3;test_import;test1@emarsys.com;;\n188925627;user3;test_import;test1@emarsys.com;;\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Export Responses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/getresponses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								"getresponses"
+							]
+						},
+						"description": "Exports the specified fields of contacts who responded to an email within a certain time period as a CSV file.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier.\n\nThe results are saved as a CSV file that you can access in multiple ways.\n- Exports flagged as `local` are stored on the Emarsys server that you can download via WebDAV or an API call.\n- Exports flagged as `ftp` can be accessed via FTP.\n\n**Implementation**\n\nYou can implement this method as follows:\n- Poll the Check Export Status endpoint to track the export status. When done, access the file at the Download Export Data endpoint.\n- Set the `notification_url` parameter to implement a callback mechanism. When the export is ready, a request is sent to the provided URL with the same payload as the Check Export Status response.\n\n**Notes**\n- For security reasons, the (S)FTP server IP address must be whitelisted on our server first.\n- WebDAV access must be enabled first, and requires authentication to use. For a WebDAV account or (S)FTP access, contact Emarsys support.\n\n**Example**\n\n```csv\nuser_id;First Name;Last Name;E-Mail;Campaign title;Link title;Url;source\n287705659;user3;test_import;test1@emarsys.com;VisualCMS_2015_04_09_10_05_03;;www.emarsys.com;click\n287705659;user3;test_import;test1@emarsys.com;RSS_2015_04_09_10_05_03;;www.google.com.com;click\n287705659;user3;test_import;test1@emarsys.com;AC_recurring_2015_04_09_10_05_03;;;open\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Export Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/export/:exportId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"export",
+								":exportId"
+							],
+							"variable": [
+								{
+									"key": "exportId"
+								}
+							]
+						},
+						"description": "Returns information about an export, including its status, type, and output settings.\n\n**Note:** This endpoint tracks the status of an asynchronous operation using a job identifier. You can initiate an export job and get the identifier at the following endpoints:\n- Export Changed Contacts\n- Export a Contact List\n- Export a Segment"
+					},
+					"response": []
+				},
+				{
+					"name": "Download Export Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/csv"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/export/:exportId/data?offset=0&limit=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"export",
+								":exportId",
+								"data"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "exportId"
+								}
+							]
+						},
+						"description": "Returns a CSV file once the export job is finished. You must set the distribution method to `local` when initiating an export job at the following endpoints:\n- Export Changed Contacts\n- Export a Contact List\n- Export a Segment\n\n**Note:** It is recommended to use FTP or WebDAV to access exports. For configuration options, contact Emarsys support.\n\n**Important:** This endpoint returns a file instead of JSON. The *Content-Type* of the response is `text/csv`."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Behavioral Data",
+			"item": [
+				{
+					"name": "Store Behavioral Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/csv"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/csv"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/hds/events/customers/:customerId/events/providers/:provider/channels/:channel/campaign_types/:campaignType/event_types/:eventType",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"hds",
+								"events",
+								"customers",
+								":customerId",
+								"events",
+								"providers",
+								":provider",
+								"channels",
+								":channel",
+								"campaign_types",
+								":campaignType",
+								"event_types",
+								":eventType"
+							],
+							"variable": [
+								{
+									"key": "customerId"
+								},
+								{
+									"key": "provider"
+								},
+								{
+									"key": "channel"
+								},
+								{
+									"key": "campaignType"
+								},
+								{
+									"key": "eventType"
+								}
+							]
+						},
+						"description": "Stores behavior events in the Emarsys database.\n\n**Note:** This endpoint is part of the Emarsys Partner API. As such, it is integration-specific and not intended for general use. Contact Emarsys support for details about integrations and our partner program.\n\n**Important:** This endpoint consumes a CSV file. Set the *Content-Type* HTTP header of the request to `text/csv`.\n\n### CSV Fields\n\n| Field | Type | Description | Comments |\n| --- | --- | --- | --- |\n| campaign_id | integer | The identifier that groups messages into meaningful categories for segmentation or reporting, such as an `email_id`, or a Suitekit `stream_id`. | Must be unique per customer. |\n| contact_id | integer | The internal contact identifier (`id`). | |\n| event_time | date | ISO 8601 date format is recognized. | Time and time zone offset are optional. If there is no offset, Vienna time is assumed. |\n| message_id | integer | Used to create a connection between different events related to a single message within the scope of a campaign. It is needed to connect events of different types to the original message that was sent to the contact. For example, if a contact can receive the same email campaign twice, we need to be able to tell if an open event comes from the first or second email. In Emarsys, this would be the launch list ID. |"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2e3720a1-854e-49eb-8d64-db24c7a131c6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b48a477-331b-42b5-9fcb-e25ec44fbd82",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Relational Data",
+			"item": [
+				{
+					"name": "Query Records in an RDS Table",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records?{keyField}={{{keyField}}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connectionName",
+								"tables",
+								":tableName",
+								"records"
+							],
+							"query": [
+								{
+									"key": "{keyField}",
+									"value": "{{{keyField}}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "connectionName",
+									"value": ""
+								},
+								{
+									"key": "tableName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Returns the records from a custom table in the Relational Data Service (RDS).\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Note:** Results are not paged. The maximum number of objects per request is 1000.\n\n>**Note:** Due to limitations of API specification languages, dynamic keys are not yet supported in query strings on the interactive demo page (**Try it out**)."
+					},
+					"response": []
+				},
+				{
+					"name": "Replace an RDS Table",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connectionName",
+								"tables",
+								":tableName",
+								"records"
+							],
+							"variable": [
+								{
+									"key": "connectionName",
+									"value": ""
+								},
+								{
+									"key": "tableName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Replaces a custom table with the provided records in the Relational Data Service (RDS).\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Important:** This call deletes all previous records from the table.\n\n**Note:** The maximum number of objects per request is 1000."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Records in an RDS Table",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connectionName",
+								"tables",
+								":tableName",
+								"records"
+							],
+							"variable": [
+								{
+									"key": "connectionName",
+									"value": ""
+								},
+								{
+									"key": "tableName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Updates records in a custom table in the Relational Data Service (RDS) that match the specified criteria.\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Note:** The maximum number of objects per request is 1000."
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Records into an RDS Table",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connecionName/tables/<:tableName>/records",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connecionName",
+								"tables",
+								"<:tableName>",
+								"records"
+							],
+							"variable": [
+								{
+									"key": "connecionName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Inserts the records into a custom table in the Relational Data Service (RDS). Records that violate any constraints on the table are ignored. For example, new records that have a conflicting primary key with an existing record are not inserted.\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Note:** The maximum number of objects per request is 1000."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Records from an RDS Table",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/remove",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connectionName",
+								"tables",
+								":tableName",
+								"records",
+								"remove"
+							],
+							"variable": [
+								{
+									"key": "connectionName",
+									"value": ""
+								},
+								{
+									"key": "tableName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Deletes the records from a custom table in the Relational Data Service (RDS) that match the specified criteria.\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Note:** The maximum number of objects per request is 1000."
+					},
+					"response": []
+				},
+				{
+					"name": "Upsert Records in an RDS Table",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/upsert",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"rds",
+								"connections",
+								":connectionName",
+								"tables",
+								":tableName",
+								"records",
+								"upsert"
+							],
+							"variable": [
+								{
+									"key": "connectionName",
+									"value": ""
+								},
+								{
+									"key": "tableName",
+									"value": ""
+								}
+							]
+						},
+						"description": "Inserts and updates records in a custom table in the Relational Data Service (RDS).\n\nThis feature is only available for subscribed customers. For further information, contact your account manager.\n\n**Notes**\n- The maximum number of objects per request is 1000.\n- Table structures are not returned on this endpoint. Therefore, you must know the primary key column(s) defined in the table you are accessing."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e28aacd0-4888-4e3e-915f-d71611d9e70f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d26965f-21d2-46bb-969f-cffcf9a417d3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Customer Settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/settings",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"settings"
+							]
+						},
+						"description": "Returns the current settings of the specified customer account, such as timezone or name.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Administrator Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/query/:administratorId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								"query",
+								":administratorId"
+							],
+							"variable": [
+								{
+									"key": "administratorId"
+								}
+							]
+						},
+						"description": "Returns the details of an admininstrator user of the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "List Administrator Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator"
+							]
+						},
+						"description": "Returns a list of administrator users of the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Administrator Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator"
+							]
+						},
+						"description": "Creates a new administrator account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Administrator Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/:administratorId/patch",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								":administratorId",
+								"patch"
+							],
+							"variable": [
+								{
+									"key": "administratorId"
+								}
+							]
+						},
+						"description": "Modifies the properties of an administrator account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Administrator Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/:administratorId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								":administratorId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "administratorId"
+								}
+							]
+						},
+						"description": "Deletes an administrator account and transfers its rights to another administrator account."
+					},
+					"response": []
+				},
+				{
+					"name": "List Access Levels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/getaccesslevels",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								"getaccesslevels"
+							]
+						},
+						"description": "Returns the list of available access levels for the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Session for an Administrator Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/:administratorId/session",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								":administratorId",
+								"session"
+							],
+							"variable": [
+								{
+									"key": "administratorId"
+								}
+							]
+						},
+						"description": "Creates a session for administrators for logging in users from outside the Emarsys application, such as implementing Single Sign-On (SSO).\n\n**Note:** This feature is in the pilot phase and currently available for a limited number of clients only. If you are interested in participating, contact Emarsys support.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Interface Languages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/getinterfacelanguages",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								"getinterfacelanguages"
+							]
+						},
+						"description": "Returns the list of available user interface languages of the Emarsys application.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "List Administrator Start Pages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/administrator/getstartpages",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"administrator",
+								"getstartpages"
+							]
+						},
+						"description": "Lists the start pages where administrators are redirected to on login.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Keys",
+			"item": [
+				{
+					"name": "List Keys in the Keyring",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/keyring/keys",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"keyring",
+								"keys"
+							]
+						},
+						"description": "Lists all keys in the keyring for SFTP key-based authentication.\n\n**Note:** This feature is in the pilot phase and currently available for a limited number of clients only. If you are interested in participating, contact Emarsys support.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Key from the Keyring",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/settings/keyring/keys/:keyId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"settings",
+								"keyring",
+								"keys",
+								":keyId"
+							],
+							"variable": [
+								{
+									"key": "keyId"
+								}
+							]
+						},
+						"description": "Returns a key from the keyring for SFTP key-based authentication.\n\n**Note:** This feature is in the pilot phase and currently available for a limited number of clients only. If you are interested in participating, contact Emarsys support.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Key in the Keyring",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/settings/keyrings",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"settings",
+								"keyrings"
+							]
+						},
+						"description": "Creates and returns a new key in the keyring for SFTP key-based authentication.\n\n**Note:** This feature is in the pilot phase and currently available for a limited number of clients only. If you are interested in participating, contact Emarsys support.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Key from the Keyring",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/keyring/keys/:keyId/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"keyring",
+								"keys",
+								":keyId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "keyId"
+								}
+							]
+						},
+						"description": "Deletes a single key from the keyring.\n\n**Note:** This feature is in the pilot phase and currently available for a limited number of clients only. If you are interested in participating, contact Emarsys support.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emarsys Sales data API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					}
+				},
+				"url": {
+					"raw": "https://admin.scarabresearch.com/hapi/merchant/:merchantID/sales-data/api",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"scarabresearch",
+						"com"
+					],
+					"path": [
+						"hapi",
+						"merchant",
+						":merchantID",
+						"sales-data",
+						"api"
+					],
+					"variable": [
+						{
+							"key": "merchantID",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2b7f37b2-055e-4e89-8888-e18ba66c0935",
+				"type": "text/javascript",
+				"exec": [
+					"/*",
+					" * This script should be used as the pre-request script for any requests made to Emarsys. In theory, it should work for any API that implements WSSE authentication as well.",
+					" * To Use:",
+					" *    1: Set an environment variable for wsse-user and wsse-secret containing your WSSE user and secret respectively",
+					" *    2: On your Headers tab, add an X-WSSE header with a value of {{wsse-header}}",
+					" *",
+					" * That's it! When you make a request, the pre-request script will generate your Nonce, Timestamp, and Digest using your secret. The 1-time-use header will be stored in the environment as wsse-header and used for your request.",
+					" */",
+					"//",
+					"// wsse.js - Generate WSSE authentication header in JavaScript",
+					"// (C) 2005 Victor R. Ruiz <victor*sixapart.com> - http://rvr.typepad.com/",
+					"//",
+					"// Parts:",
+					"//   SHA-1 library (C) 2000-2002 Paul Johnston - BSD license",
+					"//   ISO 8601 function (C) 2000 JF Walker All Rights",
+					"//   Base64 function (C) aardwulf systems - Creative Commons",
+					"//",
+					"// Example call:",
+					"//",
+					"//   var w = wsseHeader(Username, Password);",
+					"//   alert('X-WSSE: ' + w);",
+					"//",
+					"// Changelog:",
+					"//   2005.07.21 - Release 1.0",
+					"//",
+					"",
+					"/*",
+					" * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined",
+					" * in FIPS PUB 180-1",
+					" * Version 2.1a Copyright Paul Johnston 2000 - 2002.",
+					" * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet",
+					" * Distributed under the BSD License",
+					" * See http://pajhome.org.uk/crypt/md5 for details.",
+					" */",
+					"",
+					"/*",
+					" * Configurable variables. You may need to tweak these to be compatible with",
+					" * the server-side, but the defaults work in most cases.",
+					" */",
+					"var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */",
+					"var b64pad  = \"=\"; /* base-64 pad character. \"=\" for strict RFC compliance   */",
+					"var chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */",
+					"",
+					"/*",
+					" * These are the functions you'll usually want to call",
+					" * They take string arguments and return either hex or base-64 encoded strings",
+					" */",
+					"function hex_sha1(s){return binb2hex(core_sha1(str2binb(s),s.length * chrsz));}",
+					"function b64_sha1(s){return binb2b64(core_sha1(str2binb(s),s.length * chrsz));}",
+					"function str_sha1(s){return binb2str(core_sha1(str2binb(s),s.length * chrsz));}",
+					"function hex_hmac_sha1(key, data){ return binb2hex(core_hmac_sha1(key, data));}",
+					"function b64_hmac_sha1(key, data){ return binb2b64(core_hmac_sha1(key, data));}",
+					"function str_hmac_sha1(key, data){ return binb2str(core_hmac_sha1(key, data));}",
+					"",
+					"/*",
+					" * Perform a simple self-test to see if the VM is working",
+					" */",
+					"function sha1_vm_test()",
+					"{",
+					"  return hex_sha1(\"abc\") == \"a9993e364706816aba3e25717850c26c9cd0d89d\";",
+					"}",
+					"",
+					"/*",
+					" * Calculate the SHA-1 of an array of big-endian words, and a bit length",
+					" */",
+					"function core_sha1(x, len)",
+					"{",
+					"  /* append padding */",
+					"  x[len >> 5] |= 0x80 << (24 - len % 32);",
+					"  x[((len + 64 >> 9) << 4) + 15] = len;",
+					"",
+					"  var w = Array(80);",
+					"  var a =  1732584193;",
+					"  var b = -271733879;",
+					"  var c = -1732584194;",
+					"  var d =  271733878;",
+					"  var e = -1009589776;",
+					"",
+					"  for(var i = 0; i < x.length; i += 16)",
+					"  {",
+					"    var olda = a;",
+					"    var oldb = b;",
+					"    var oldc = c;",
+					"    var oldd = d;",
+					"    var olde = e;",
+					"",
+					"    for(var j = 0; j < 80; j++)",
+					"    {",
+					"      if(j < 16) w[j] = x[i + j];",
+					"      else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);",
+					"      var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)),",
+					"                       safe_add(safe_add(e, w[j]), sha1_kt(j)));",
+					"      e = d;",
+					"      d = c;",
+					"      c = rol(b, 30);",
+					"      b = a;",
+					"      a = t;",
+					"    }",
+					"",
+					"    a = safe_add(a, olda);",
+					"    b = safe_add(b, oldb);",
+					"    c = safe_add(c, oldc);",
+					"    d = safe_add(d, oldd);",
+					"    e = safe_add(e, olde);",
+					"  }",
+					"  return Array(a, b, c, d, e);",
+					"",
+					"}",
+					"",
+					"/*",
+					" * Perform the appropriate triplet combination function for the current",
+					" * iteration",
+					" */",
+					"function sha1_ft(t, b, c, d)",
+					"{",
+					"  if(t < 20) return (b & c) | ((~b) & d);",
+					"  if(t < 40) return b ^ c ^ d;",
+					"  if(t < 60) return (b & c) | (b & d) | (c & d);",
+					"  return b ^ c ^ d;",
+					"}",
+					"",
+					"/*",
+					" * Determine the appropriate additive constant for the current iteration",
+					" */",
+					"function sha1_kt(t)",
+					"{",
+					"  return (t < 20) ?  1518500249 : (t < 40) ?  1859775393 :",
+					"         (t < 60) ? -1894007588 : -899497514;",
+					"}",
+					"",
+					"/*",
+					" * Calculate the HMAC-SHA1 of a key and some data",
+					" */",
+					"function core_hmac_sha1(key, data)",
+					"{",
+					"  var bkey = str2binb(key);",
+					"  if(bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);",
+					"",
+					"  var ipad = Array(16), opad = Array(16);",
+					"  for(var i = 0; i < 16; i++)",
+					"  {",
+					"    ipad[i] = bkey[i] ^ 0x36363636;",
+					"    opad[i] = bkey[i] ^ 0x5C5C5C5C;",
+					"  }",
+					"",
+					"  var hash = core_sha1(ipad.concat(str2binb(data)), 512 + data.length * chrsz);",
+					"  return core_sha1(opad.concat(hash), 512 + 160);",
+					"}",
+					"",
+					"/*",
+					" * Add integers, wrapping at 2^32. This uses 16-bit operations internally",
+					" * to work around bugs in some JS interpreters.",
+					" */",
+					"function safe_add(x, y)",
+					"{",
+					"  var lsw = (x & 0xFFFF) + (y & 0xFFFF);",
+					"  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);",
+					"  return (msw << 16) | (lsw & 0xFFFF);",
+					"}",
+					"",
+					"/*",
+					" * Bitwise rotate a 32-bit number to the left.",
+					" */",
+					"function rol(num, cnt)",
+					"{",
+					"  return (num << cnt) | (num >>> (32 - cnt));",
+					"}",
+					"",
+					"/*",
+					" * Convert an 8-bit or 16-bit string to an array of big-endian words",
+					" * In 8-bit function, characters >255 have their hi-byte silently ignored.",
+					" */",
+					"function str2binb(str)",
+					"{",
+					"  var bin = Array();",
+					"  var mask = (1 << chrsz) - 1;",
+					"  for(var i = 0; i < str.length * chrsz; i += chrsz)",
+					"    bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (32 - chrsz - i%32);",
+					"  return bin;",
+					"}",
+					"",
+					"/*",
+					" * Convert an array of big-endian words to a string",
+					" */",
+					"function binb2str(bin)",
+					"{",
+					"  var str = \"\";",
+					"  var mask = (1 << chrsz) - 1;",
+					"  for(var i = 0; i < bin.length * 32; i += chrsz)",
+					"    str += String.fromCharCode((bin[i>>5] >>> (32 - chrsz - i%32)) & mask);",
+					"  return str;",
+					"}",
+					"",
+					"/*",
+					" * Convert an array of big-endian words to a hex string.",
+					" */",
+					"function binb2hex(binarray)",
+					"{",
+					"  var hex_tab = hexcase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";",
+					"  var str = \"\";",
+					"  for(var i = 0; i < binarray.length * 4; i++)",
+					"  {",
+					"    str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +",
+					"           hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);",
+					"  }",
+					"  return str;",
+					"}",
+					"",
+					"/*",
+					" * Convert an array of big-endian words to a base-64 string",
+					" */",
+					"function binb2b64(binarray)",
+					"{",
+					"  var tab = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";",
+					"  var str = \"\";",
+					"  for(var i = 0; i < binarray.length * 4; i += 3)",
+					"  {",
+					"    var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)",
+					"                | (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )",
+					"                |  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);",
+					"    for(var j = 0; j < 4; j++)",
+					"    {",
+					"      if(i * 8 + j * 6 > binarray.length * 32) str += b64pad;",
+					"      else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);",
+					"    }",
+					"  }",
+					"  return str;",
+					"}",
+					"",
+					"// aardwulf systems",
+					"// This work is licensed under a Creative Commons License.",
+					"// http://www.aardwulf.com/tutor/base64/",
+					"function encode64(input) {",
+					"    var keyStr = \"ABCDEFGHIJKLMNOP\" +",
+					"                \"QRSTUVWXYZabcdef\" +",
+					"                \"ghijklmnopqrstuv\" +",
+					"                \"wxyz0123456789+/\" +",
+					"                \"=\";",
+					"",
+					"    var output = \"\";",
+					"    var chr1, chr2, chr3 = \"\";",
+					"    var enc1, enc2, enc3, enc4 = \"\";",
+					"    var i = 0;",
+					"",
+					"    do {",
+					"        chr1 = input.charCodeAt(i++);",
+					"        chr2 = input.charCodeAt(i++);",
+					"        chr3 = input.charCodeAt(i++);",
+					"",
+					"        enc1 = chr1 >> 2;",
+					"        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);",
+					"        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);",
+					"        enc4 = chr3 & 63;",
+					"",
+					"        if (isNaN(chr2)) {",
+					"        enc3 = enc4 = 64;",
+					"        } else if (isNaN(chr3)) {",
+					"        enc4 = 64;",
+					"        }",
+					"",
+					"        output = output +",
+					"        keyStr.charAt(enc1) +",
+					"        keyStr.charAt(enc2) +",
+					"        keyStr.charAt(enc3) +",
+					"        keyStr.charAt(enc4);",
+					"        chr1 = chr2 = chr3 = \"\";",
+					"        enc1 = enc2 = enc3 = enc4 = \"\";",
+					"    } while (i < input.length);",
+					"",
+					"    return output;",
+					"}",
+					"",
+					"// TITLE",
+					"// TempersFewGit v 2.1 (ISO 8601 Time/Date script)",
+					"//",
+					"// OBJECTIVE",
+					"// Javascript script to detect the time zone where a browser",
+					"// is and display the date and time in accordance with the",
+					"// ISO 8601 standard.",
+					"//",
+					"// AUTHOR",
+					"// John Walker",
+					"// http://321WebLiftOff.net",
+					"// jfwalker@ureach.com",
+					"//",
+					"// ENCOMIUM",
+					"// Thanks to Stephen Pugh for his help.",
+					"//",
+					"// CREATED",
+					"// 2000-09-15T09:42:53+01:00",
+					"//",
+					"// REFERENCES",
+					"// For more about ISO 8601 see:",
+					"// http://www.w3.org/TR/NOTE-datetime",
+					"// http://www.cl.cam.ac.uk/~mgk25/iso-time.html",
+					"//",
+					"// COPYRIGHT",
+					"// This script is Copyright  2000 JF Walker All Rights",
+					"// Reserved but may be freely used provided this colophon is",
+					"// included in full.",
+					"//",
+					"function isodatetime() {",
+					"    var today = new Date();",
+					"    var year  = today.getYear();",
+					"    if (year < 2000)    // Y2K Fix, Isaac Powell",
+					"    year = year + 1900; // http://onyx.idbsu.edu/~ipowell",
+					"    var month = today.getMonth() + 1;",
+					"    var day  = today.getDate();",
+					"    var hour = today.getHours();",
+					"    var hourUTC = today.getUTCHours();",
+					"    var diff = hour - hourUTC;",
+					"    if(diff > 12) diff -= 24; // Fix the problem for town with real negative diff",
+					"    if(diff <= -12) diff += 24; // Fix the problem for town with real positive diff",
+					"    var hourdifference = Math.abs(diff);",
+					"    var minute = today.getMinutes();",
+					"    var minuteUTC = today.getUTCMinutes();",
+					"    var minutedifference;",
+					"    var second = today.getSeconds();",
+					"    var timezone;",
+					"    if (minute != minuteUTC && minuteUTC < 30 && diff < 0) { hourdifference--; }",
+					"    if (minute != minuteUTC && minuteUTC > 30 && diff > 0) { hourdifference--; }",
+					"    if (minute != minuteUTC) {",
+					"    minutedifference = \":30\";",
+					"    }",
+					"    else {",
+					"    minutedifference = \":00\";",
+					"    }",
+					"    if (hourdifference < 10) {",
+					"    timezone = \"0\" + hourdifference + minutedifference;",
+					"    }",
+					"    else {",
+					"    timezone = \"\" + hourdifference + minutedifference;",
+					"    }",
+					"    if (diff < 0) {",
+					"    timezone = \"-\" + timezone;",
+					"    }",
+					"    else {",
+					"    timezone = \"+\" + timezone;",
+					"    }",
+					"    if (month <= 9) month = \"0\" + month;",
+					"    if (day <= 9) day = \"0\" + day;",
+					"    if (hour <= 9) hour = \"0\" + hour;",
+					"    if (minute <= 9) minute = \"0\" + minute;",
+					"    if (second <= 9) second = \"0\" + second;",
+					"    time = year + \"-\" + month + \"-\" + day + \"T\"",
+					"    + hour + \":\" + minute + \":\" + second + timezone;",
+					"    return time;",
+					"}",
+					"",
+					"// (C) 2005 Victor R. Ruiz <victor*sixapart.com>",
+					"// Code to generate WSSE authentication header",
+					"//",
+					"// http://www.sixapart.com/pronet/docs/typepad_atom_api",
+					"//",
+					"// X-WSSE: UsernameToken Username=\"name\", PasswordDigest=\"digest\", Created=\"timestamp\", Nonce=\"nonce\"",
+					"//",
+					"//  * Username- The username that the user enters (the TypePad username).",
+					"//  * Nonce. A secure token generated anew for each HTTP request.",
+					"//  * Created. The ISO-8601 timestamp marking when Nonce was created.",
+					"//  * PasswordDigest. A SHA-1 digest of the Nonce, Created timestamp, and the password",
+					"//    that the user supplies, base64-encoded. In other words, this should be calculated",
+					"//    as: base64(sha1(Nonce . Created . Password))",
+					"//",
+					"",
+					"function wsse(Password) {",
+					"    var PasswordDigest, Nonce, Created;",
+					"    var r = new Array;",
+					"",
+					"    nonceEncoded = hex_sha1(isodatetime() + String(Math.random()) + 'There is more than words');",
+					"    Created = isodatetime();",
+					"    PasswordDigest = encode64(hex_sha1(nonceEncoded + Created + Password));",
+					"",
+					"    r[0] = nonceEncoded;",
+					"    r[1] = Created;",
+					"    r[2] = PasswordDigest;",
+					"    return r;",
+					"}",
+					"",
+					"function wsseHeader(Username, Password) {",
+					"    var w = wsse(Password);",
+					"    var header = 'UsernameToken Username=\"' + Username + '\", PasswordDigest=\"' + w[2] + '\", Created=\"' + w[1] + '\", Nonce=\"' + w[0] + '\"';",
+					"    return header;",
+					"}",
+					"",
+					"//generate the header and set it in the environment",
+					"pm.environment.set(",
+					"    \"wsse-header\",",
+					"    wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\"))",
+					");",
+					"var wsseHeader = wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\")); pm.environment.set(\"wsse-header\", wsseHeader);",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5f1c8d60-ba79-4dc6-85bb-fde92efc9c67",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
