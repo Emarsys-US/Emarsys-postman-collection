@@ -1,13 +1,14 @@
 {
 	"info": {
-		"_postman_id": "b2737e2c-0c1c-4370-8ef7-dd3f41c07830",
-		"name": "Emarsys Developer Hub",
+		"_postman_id": "3803f16b-3deb-4b94-93b5-422994043e10",
+		"name": "Emarsys Developer Hub - AMER Sol Arc Edits",
 		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Contacts",
+			"description": "",
 			"item": [
 				{
 					"name": "List Contact Data",
@@ -27,6 +28,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/query?{fieldId}={{{fieldId}}}&return={{return}}&excludeempty={{excludeempty}}&offset=0&limit=10000",
 							"protocol": "https",
@@ -253,6 +258,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/query/:keyId=:keyValue",
 							"protocol": "https",
@@ -364,27 +373,16 @@
 		},
 		{
 			"name": "Fields",
+			"description": "",
 			"item": [
 				{
 					"name": "List Available Fields",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8d506b45-bae9-4082-a260-fb6851922dc0",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-WSSE",
-								"value": "{{X-WSSE}}"
+								"value": "{{wsse-header}}"
 							},
 							{
 								"key": "Accept",
@@ -395,6 +393,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/field/translate/:languageId",
 							"protocol": "https",
@@ -412,8 +414,7 @@
 							],
 							"variable": [
 								{
-									"key": "languageId",
-									"value": "en"
+									"key": "languageId"
 								}
 							]
 						},
@@ -479,6 +480,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/field/:fieldID/choice/translate/:languageId",
 							"protocol": "https",
@@ -527,6 +532,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/last_change",
 							"protocol": "https",
@@ -596,6 +605,7 @@
 		},
 		{
 			"name": "Contact Lists",
+			"description": "",
 			"item": [
 				{
 					"name": "List Contact Lists",
@@ -615,6 +625,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist",
 							"protocol": "https",
@@ -784,6 +798,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/count",
 							"protocol": "https",
@@ -874,6 +892,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId?offset=0&limit=",
 							"protocol": "https",
@@ -926,6 +948,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/data?fields={{fields}}&limit=&offset=0",
 							"protocol": "https",
@@ -984,6 +1010,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/:contactId",
 							"protocol": "https",
@@ -1111,6 +1141,7 @@
 		},
 		{
 			"name": "Segments",
+			"description": "",
 			"item": [
 				{
 					"name": "List Segments",
@@ -1119,7 +1150,7 @@
 						"header": [
 							{
 								"key": "X-WSSE",
-								"value": "{{X-WSSE}}"
+								"value": "{{wsse-header}}"
 							},
 							{
 								"key": "Accept",
@@ -1128,20 +1159,12 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
-							},
-							{
-								"key": "X-WSSE",
-								"value": "{{text-wsse}}",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "X-WSSE",
-								"value": "UsernameToken Username=\"us_template_demo001\", PasswordDigest=\"M2QwNjVkNTdkOGMzOWRlOWNkYjVjMTQ5MTczZjUzMTFhNjFmMjBkZQ==\", Nonce=\"b42ae84e752c53d58e41f47227809c15\", Created=\"2019-08-14T15:28:05Z\"",
-								"type": "text",
-								"disabled": true
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter",
 							"protocol": "https",
@@ -1218,6 +1241,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/combinedsegments",
 							"protocol": "https",
@@ -1294,6 +1321,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/count",
 							"protocol": "https",
@@ -1338,6 +1369,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts?limit=&offset=0",
 							"protocol": "https",
@@ -1391,6 +1426,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/combinedsegments/:combinedSegmentId",
 							"protocol": "https",
@@ -1479,6 +1518,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contact_criteria",
 							"protocol": "https",
@@ -1522,6 +1565,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/:contactId",
 							"protocol": "https",
@@ -1569,6 +1616,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/delete",
 							"protocol": "https",
@@ -1597,6 +1648,7 @@
 		},
 		{
 			"name": "Contact Sources",
+			"description": "",
 			"item": [
 				{
 					"name": "List Contact Sources",
@@ -1616,6 +1668,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/source",
 							"protocol": "https",
@@ -1692,6 +1748,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/source/:sourceId",
 							"protocol": "https",
@@ -1720,6 +1780,7 @@
 		},
 		{
 			"name": "Forms",
+			"description": "",
 			"item": [
 				{
 					"name": "List Customer Forms",
@@ -1739,6 +1800,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/form",
 							"protocol": "https",
@@ -1761,6 +1826,7 @@
 		},
 		{
 			"name": "Email Campaigns",
+			"description": "",
 			"item": [
 				{
 					"name": "List Email Campaigns",
@@ -1780,6 +1846,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email?status={{status}}&launched={{launched}}&contactlist={{contactlist}}&showdeleted={{showdeleted}}&fromdate={{fromdate}}&todate={{todate}}&root_campaign_id={{root_campaign_id}}&template={{template}}&content_type={{content_type}}&campaign_type={{campaign_type}}&parent_campaign_id={{parent_campaign_id}}&behavior_channel={{behavior_channel}}&email_category={{email_category}}",
 							"protocol": "https",
@@ -1910,6 +1980,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId?raw={{raw}}",
 							"protocol": "https",
@@ -1958,6 +2032,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/language",
 							"protocol": "https",
@@ -1994,6 +2072,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/emailcategory",
 							"protocol": "https",
@@ -2337,6 +2419,7 @@
 		},
 		{
 			"name": "Campaign Launch",
+			"description": "",
 			"item": [
 				{
 					"name": "Preview Email Campaign Contents",
@@ -2579,6 +2662,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:queryId/responses",
 							"protocol": "https",
@@ -2622,6 +2709,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/responsesummary?launch_id={{launch_id}}&start_date={{start_date}}&end_date={{end_date}}",
 							"protocol": "https",
@@ -2720,6 +2811,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/personalization",
 							"protocol": "https",
@@ -2788,7 +2883,7 @@
 								}
 							]
 						},
-						"description": "Returns the URL of a launched email campaign’s content for the specified contact."
+						"description": "Returns the URL of a launched email campaign's content for the specified contact."
 					},
 					"response": []
 				},
@@ -2836,6 +2931,7 @@
 		},
 		{
 			"name": "Media Database",
+			"description": "",
 			"item": [
 				{
 					"name": "List Media Database Folders",
@@ -2855,6 +2951,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/folder?folder={{folder}}",
 							"protocol": "https",
@@ -2937,6 +3037,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/file?folder={{folder}}",
 							"protocol": "https",
@@ -3019,6 +3123,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/file/:fileId",
 							"protocol": "https",
@@ -3094,6 +3202,7 @@
 		},
 		{
 			"name": "Conditional Text Rules",
+			"description": "",
 			"item": [
 				{
 					"name": "List Conditional Text Rules",
@@ -3113,6 +3222,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/condition",
 							"protocol": "https",
@@ -3135,6 +3248,7 @@
 		},
 		{
 			"name": "Email Templates",
+			"description": "",
 			"item": [
 				{
 					"name": "List Email Templates",
@@ -3154,6 +3268,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/templates",
 							"protocol": "https",
@@ -3191,6 +3309,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/templates/:templateId",
 							"protocol": "https",
@@ -3220,6 +3342,7 @@
 		},
 		{
 			"name": "Tracked Links",
+			"description": "",
 			"item": [
 				{
 					"name": "List Tracked Links in an Email Campaign",
@@ -3239,6 +3362,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/trackedlinks/:linkId",
 							"protocol": "https",
@@ -3337,6 +3464,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings/linkcategories",
 							"protocol": "https",
@@ -3458,6 +3589,7 @@
 		},
 		{
 			"name": "Sections",
+			"description": "",
 			"item": [
 				{
 					"name": "List Sections in a Template-based Email Campaign",
@@ -3477,6 +3609,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections",
 							"protocol": "https",
@@ -3567,6 +3703,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections/:sectionId",
 							"protocol": "https",
@@ -3703,6 +3843,7 @@
 		},
 		{
 			"name": "Mail Stream",
+			"description": "",
 			"item": [
 				{
 					"name": "Query Mail Events",
@@ -3722,6 +3863,10 @@
 								"value": "gzip"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/rtm/mail_events/:eventType?from={{from}}&to={{to}}&email={{email}}&external_id={{external_id}}",
 							"protocol": "https",
@@ -3814,32 +3959,11 @@
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "2a52cbfb-b6bc-4cfc-90b3-ccef57004ccc",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "237a505c-519c-49a2-9e95-1f0930cee044",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
 			"name": "External Events",
+			"description": "",
 			"item": [
 				{
 					"name": "List External Events",
@@ -3859,6 +3983,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/event/:eventId",
 							"protocol": "https",
@@ -3901,8 +4029,12 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/event/:eventId/usages",
+							"raw": "https://api.emarsys.net/api/v2/event/:eventId/usages",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -3911,9 +4043,17 @@
 							],
 							"path": [
 								"api",
+								"v2",
 								"event",
 								":eventId",
 								"usages"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
 							],
 							"variable": [
 								{
@@ -4031,7 +4171,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"data\": {\r\n    \"global\": {\r\n      \"appointmentid\": 29020202,\r\n      \"bookingnumber\": 10029020202\r\n    }\r\n  },\r\n  \"external_id\": \"dylan.wolter@emarsys.com\",\r\n  \"key_id\": 3\r\n}\r\n"
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/event/:eventId/trigger",
@@ -4050,8 +4190,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"value": "4359"
+									"key": "eventId"
 								}
 							]
 						},
@@ -4106,32 +4245,11 @@
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "8e6c07dc-fe9f-4107-9824-f3449dd8a263",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "75c15eca-0395-43c8-80e5-bbd63f4116b2",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
 			"name": "Programs",
+			"description": "",
 			"item": [
 				{
 					"name": "List Program Resources in Use",
@@ -4151,6 +4269,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
 							"protocol": "https",
@@ -4234,32 +4356,11 @@
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "793411d0-79ca-44ee-aaec-79899b9179a1",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "57172c05-2741-4450-aa44-9dcb1392c60f",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
 			"name": "Contact and Email Data",
+			"description": "",
 			"item": [
 				{
 					"name": "Export Changed Contacts",
@@ -4484,6 +4585,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/export/:exportId",
 							"protocol": "https",
@@ -4522,6 +4627,10 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/export/:exportId/data?offset=0&limit=",
 							"protocol": "https",
@@ -4561,6 +4670,7 @@
 		},
 		{
 			"name": "Behavioral Data",
+			"description": "",
 			"item": [
 				{
 					"name": "Store Behavioral Data",
@@ -4626,32 +4736,11 @@
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "2e3720a1-854e-49eb-8d64-db24c7a131c6",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "7b48a477-331b-42b5-9fcb-e25ec44fbd82",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
 			"name": "Relational Data",
+			"description": "",
 			"item": [
 				{
 					"name": "Query Records in an RDS Table",
@@ -4671,8 +4760,12 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records?{keyField}={{{keyField}}}",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records?{keyField}={{{keyField}}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4682,7 +4775,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -4696,12 +4789,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"value": ""
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"value": ""
+									"key": "tableName"
 								}
 							]
 						},
@@ -4732,7 +4823,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4742,7 +4833,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -4750,12 +4841,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"value": ""
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"value": ""
+									"key": "tableName"
 								}
 							]
 						},
@@ -4786,7 +4875,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4796,7 +4885,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -4804,12 +4893,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"value": ""
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"value": ""
+									"key": "tableName"
 								}
 							]
 						},
@@ -4977,32 +5064,11 @@
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "e28aacd0-4888-4e3e-915f-d71611d9e70f",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "4d26965f-21d2-46bb-969f-cffcf9a417d3",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
 			"name": "Accounts",
+			"description": "",
 			"item": [
 				{
 					"name": "Get Customer Settings",
@@ -5018,6 +5084,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings",
 							"protocol": "https",
@@ -5050,6 +5117,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/query/:administratorId",
 							"protocol": "https",
@@ -5071,7 +5139,7 @@
 								}
 							]
 						},
-						"description": "Returns the details of an admininstrator user of the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+						"description": "Returns the details of an admininstrator user of the customer's account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
 					},
 					"response": []
 				},
@@ -5089,6 +5157,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator",
 							"protocol": "https",
@@ -5103,7 +5172,7 @@
 								"administrator"
 							]
 						},
-						"description": "Returns a list of administrator users of the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+						"description": "Returns a list of administrator users of the customer's account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
 					},
 					"response": []
 				},
@@ -5200,6 +5269,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/:administratorId/delete",
 							"protocol": "https",
@@ -5239,6 +5309,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getaccesslevels",
 							"protocol": "https",
@@ -5254,7 +5325,7 @@
 								"getaccesslevels"
 							]
 						},
-						"description": "Returns the list of available access levels for the customer’s account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
+						"description": "Returns the list of available access levels for the customer's account.\n\n**Important:** Access to administrative endpoints is restricted. If you need access, contact Emarsys support."
 					},
 					"response": []
 				},
@@ -5315,6 +5386,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getinterfacelanguages",
 							"protocol": "https",
@@ -5348,6 +5420,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getstartpages",
 							"protocol": "https",
@@ -5371,6 +5444,7 @@
 		},
 		{
 			"name": "Keys",
+			"description": "",
 			"item": [
 				{
 					"name": "List Keys in the Keyring",
@@ -5386,6 +5460,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/keyring/keys",
 							"protocol": "https",
@@ -5419,6 +5494,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings/keyring/keys/:keyId",
 							"protocol": "https",
@@ -5496,6 +5572,7 @@
 								"value": "application/json"
 							}
 						],
+						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/keyring/keys/:keyId/delete",
 							"protocol": "https",
@@ -5525,68 +5602,61 @@
 			]
 		},
 		{
-			"name": "Emarsys Sales data API",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
+			"name": "Scarab Endpoints",
+			"item": [
+				{
+					"name": "Sales Data API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-type",
+								"value": "text/csv",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain",
+								"type": "text"
+							},
+							{
+								"key": "data-binary",
+								"value": "{{path to file}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://admin.scarabresearch.com/hapi/merchant/{{merchant-id}}/sales-data/api",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"scarabresearch",
+								"com"
+							],
+							"path": [
+								"hapi",
+								"merchant",
+								"{{merchant-id}}",
+								"sales-data",
+								"api"
+							]
 						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "text/csv",
-						"type": "text"
 					},
-					{
-						"key": "accept",
-						"value": "text/plain",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "file",
-					"file": {
-						"src": ""
-					}
-				},
-				"url": {
-					"raw": "https://admin.scarabresearch.com/hapi/merchant/:merchantID/sales-data/api",
-					"protocol": "https",
-					"host": [
-						"admin",
-						"scarabresearch",
-						"com"
-					],
-					"path": [
-						"hapi",
-						"merchant",
-						":merchantID",
-						"sales-data",
-						"api"
-					],
-					"variable": [
-						{
-							"key": "merchantID",
-							"value": ""
-						}
-					]
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2b7f37b2-055e-4e89-8888-e18ba66c0935",
+				"id": "81570124-7a9a-442c-9d84-58f9520ab076",
 				"type": "text/javascript",
 				"exec": [
 					"/*",
@@ -5629,58 +5699,54 @@
 					" * the server-side, but the defaults work in most cases.",
 					" */",
 					"var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */",
-					"var b64pad  = \"=\"; /* base-64 pad character. \"=\" for strict RFC compliance   */",
-					"var chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */",
+					"var b64pad = \"=\"; /* base-64 pad character. \"=\" for strict RFC compliance   */",
+					"var chrsz = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */",
 					"",
 					"/*",
 					" * These are the functions you'll usually want to call",
 					" * They take string arguments and return either hex or base-64 encoded strings",
 					" */",
-					"function hex_sha1(s){return binb2hex(core_sha1(str2binb(s),s.length * chrsz));}",
-					"function b64_sha1(s){return binb2b64(core_sha1(str2binb(s),s.length * chrsz));}",
-					"function str_sha1(s){return binb2str(core_sha1(str2binb(s),s.length * chrsz));}",
-					"function hex_hmac_sha1(key, data){ return binb2hex(core_hmac_sha1(key, data));}",
-					"function b64_hmac_sha1(key, data){ return binb2b64(core_hmac_sha1(key, data));}",
-					"function str_hmac_sha1(key, data){ return binb2str(core_hmac_sha1(key, data));}",
+					"function hex_sha1(s) { return binb2hex(core_sha1(str2binb(s), s.length * chrsz)); }",
+					"function b64_sha1(s) { return binb2b64(core_sha1(str2binb(s), s.length * chrsz)); }",
+					"function str_sha1(s) { return binb2str(core_sha1(str2binb(s), s.length * chrsz)); }",
+					"function hex_hmac_sha1(key, data) { return binb2hex(core_hmac_sha1(key, data)); }",
+					"function b64_hmac_sha1(key, data) { return binb2b64(core_hmac_sha1(key, data)); }",
+					"function str_hmac_sha1(key, data) { return binb2str(core_hmac_sha1(key, data)); }",
 					"",
 					"/*",
 					" * Perform a simple self-test to see if the VM is working",
 					" */",
-					"function sha1_vm_test()",
-					"{",
+					"function sha1_vm_test() {",
 					"  return hex_sha1(\"abc\") == \"a9993e364706816aba3e25717850c26c9cd0d89d\";",
 					"}",
 					"",
 					"/*",
 					" * Calculate the SHA-1 of an array of big-endian words, and a bit length",
 					" */",
-					"function core_sha1(x, len)",
-					"{",
+					"function core_sha1(x, len) {",
 					"  /* append padding */",
 					"  x[len >> 5] |= 0x80 << (24 - len % 32);",
 					"  x[((len + 64 >> 9) << 4) + 15] = len;",
 					"",
 					"  var w = Array(80);",
-					"  var a =  1732584193;",
+					"  var a = 1732584193;",
 					"  var b = -271733879;",
 					"  var c = -1732584194;",
-					"  var d =  271733878;",
+					"  var d = 271733878;",
 					"  var e = -1009589776;",
 					"",
-					"  for(var i = 0; i < x.length; i += 16)",
-					"  {",
+					"  for (var i = 0; i < x.length; i += 16) {",
 					"    var olda = a;",
 					"    var oldb = b;",
 					"    var oldc = c;",
 					"    var oldd = d;",
 					"    var olde = e;",
 					"",
-					"    for(var j = 0; j < 80; j++)",
-					"    {",
-					"      if(j < 16) w[j] = x[i + j];",
-					"      else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);",
+					"    for (var j = 0; j < 80; j++) {",
+					"      if (j < 16) w[j] = x[i + j];",
+					"      else w[j] = rol(w[j - 3] ^ w[j - 8] ^ w[j - 14] ^ w[j - 16], 1);",
 					"      var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)),",
-					"                       safe_add(safe_add(e, w[j]), sha1_kt(j)));",
+					"        safe_add(safe_add(e, w[j]), sha1_kt(j)));",
 					"      e = d;",
 					"      d = c;",
 					"      c = rol(b, 30);",
@@ -5702,34 +5768,30 @@
 					" * Perform the appropriate triplet combination function for the current",
 					" * iteration",
 					" */",
-					"function sha1_ft(t, b, c, d)",
-					"{",
-					"  if(t < 20) return (b & c) | ((~b) & d);",
-					"  if(t < 40) return b ^ c ^ d;",
-					"  if(t < 60) return (b & c) | (b & d) | (c & d);",
+					"function sha1_ft(t, b, c, d) {",
+					"  if (t < 20) return (b & c) | ((~b) & d);",
+					"  if (t < 40) return b ^ c ^ d;",
+					"  if (t < 60) return (b & c) | (b & d) | (c & d);",
 					"  return b ^ c ^ d;",
 					"}",
 					"",
 					"/*",
 					" * Determine the appropriate additive constant for the current iteration",
 					" */",
-					"function sha1_kt(t)",
-					"{",
-					"  return (t < 20) ?  1518500249 : (t < 40) ?  1859775393 :",
-					"         (t < 60) ? -1894007588 : -899497514;",
+					"function sha1_kt(t) {",
+					"  return (t < 20) ? 1518500249 : (t < 40) ? 1859775393 :",
+					"    (t < 60) ? -1894007588 : -899497514;",
 					"}",
 					"",
 					"/*",
 					" * Calculate the HMAC-SHA1 of a key and some data",
 					" */",
-					"function core_hmac_sha1(key, data)",
-					"{",
+					"function core_hmac_sha1(key, data) {",
 					"  var bkey = str2binb(key);",
-					"  if(bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);",
+					"  if (bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);",
 					"",
 					"  var ipad = Array(16), opad = Array(16);",
-					"  for(var i = 0; i < 16; i++)",
-					"  {",
+					"  for (var i = 0; i < 16; i++) {",
 					"    ipad[i] = bkey[i] ^ 0x36363636;",
 					"    opad[i] = bkey[i] ^ 0x5C5C5C5C;",
 					"  }",
@@ -5742,8 +5804,7 @@
 					" * Add integers, wrapping at 2^32. This uses 16-bit operations internally",
 					" * to work around bugs in some JS interpreters.",
 					" */",
-					"function safe_add(x, y)",
-					"{",
+					"function safe_add(x, y) {",
 					"  var lsw = (x & 0xFFFF) + (y & 0xFFFF);",
 					"  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);",
 					"  return (msw << 16) | (lsw & 0xFFFF);",
@@ -5752,8 +5813,7 @@
 					"/*",
 					" * Bitwise rotate a 32-bit number to the left.",
 					" */",
-					"function rol(num, cnt)",
-					"{",
+					"function rol(num, cnt) {",
 					"  return (num << cnt) | (num >>> (32 - cnt));",
 					"}",
 					"",
@@ -5761,38 +5821,34 @@
 					" * Convert an 8-bit or 16-bit string to an array of big-endian words",
 					" * In 8-bit function, characters >255 have their hi-byte silently ignored.",
 					" */",
-					"function str2binb(str)",
-					"{",
+					"function str2binb(str) {",
 					"  var bin = Array();",
 					"  var mask = (1 << chrsz) - 1;",
-					"  for(var i = 0; i < str.length * chrsz; i += chrsz)",
-					"    bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (32 - chrsz - i%32);",
+					"  for (var i = 0; i < str.length * chrsz; i += chrsz)",
+					"    bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (32 - chrsz - i % 32);",
 					"  return bin;",
 					"}",
 					"",
 					"/*",
 					" * Convert an array of big-endian words to a string",
 					" */",
-					"function binb2str(bin)",
-					"{",
+					"function binb2str(bin) {",
 					"  var str = \"\";",
 					"  var mask = (1 << chrsz) - 1;",
-					"  for(var i = 0; i < bin.length * 32; i += chrsz)",
-					"    str += String.fromCharCode((bin[i>>5] >>> (32 - chrsz - i%32)) & mask);",
+					"  for (var i = 0; i < bin.length * 32; i += chrsz)",
+					"    str += String.fromCharCode((bin[i >> 5] >>> (32 - chrsz - i % 32)) & mask);",
 					"  return str;",
 					"}",
 					"",
 					"/*",
 					" * Convert an array of big-endian words to a hex string.",
 					" */",
-					"function binb2hex(binarray)",
-					"{",
+					"function binb2hex(binarray) {",
 					"  var hex_tab = hexcase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";",
 					"  var str = \"\";",
-					"  for(var i = 0; i < binarray.length * 4; i++)",
-					"  {",
-					"    str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +",
-					"           hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);",
+					"  for (var i = 0; i < binarray.length * 4; i++) {",
+					"    str += hex_tab.charAt((binarray[i >> 2] >> ((3 - i % 4) * 8 + 4)) & 0xF) +",
+					"      hex_tab.charAt((binarray[i >> 2] >> ((3 - i % 4) * 8)) & 0xF);",
 					"  }",
 					"  return str;",
 					"}",
@@ -5800,19 +5856,16 @@
 					"/*",
 					" * Convert an array of big-endian words to a base-64 string",
 					" */",
-					"function binb2b64(binarray)",
-					"{",
+					"function binb2b64(binarray) {",
 					"  var tab = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";",
 					"  var str = \"\";",
-					"  for(var i = 0; i < binarray.length * 4; i += 3)",
-					"  {",
-					"    var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)",
-					"                | (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )",
-					"                |  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);",
-					"    for(var j = 0; j < 4; j++)",
-					"    {",
-					"      if(i * 8 + j * 6 > binarray.length * 32) str += b64pad;",
-					"      else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);",
+					"  for (var i = 0; i < binarray.length * 4; i += 3) {",
+					"    var triplet = (((binarray[i >> 2] >> 8 * (3 - i % 4)) & 0xFF) << 16)",
+					"      | (((binarray[i + 1 >> 2] >> 8 * (3 - (i + 1) % 4)) & 0xFF) << 8)",
+					"      | ((binarray[i + 2 >> 2] >> 8 * (3 - (i + 2) % 4)) & 0xFF);",
+					"    for (var j = 0; j < 4; j++) {",
+					"      if (i * 8 + j * 6 > binarray.length * 32) str += b64pad;",
+					"      else str += tab.charAt((triplet >> 6 * (3 - j)) & 0x3F);",
 					"    }",
 					"  }",
 					"  return str;",
@@ -5822,43 +5875,43 @@
 					"// This work is licensed under a Creative Commons License.",
 					"// http://www.aardwulf.com/tutor/base64/",
 					"function encode64(input) {",
-					"    var keyStr = \"ABCDEFGHIJKLMNOP\" +",
-					"                \"QRSTUVWXYZabcdef\" +",
-					"                \"ghijklmnopqrstuv\" +",
-					"                \"wxyz0123456789+/\" +",
-					"                \"=\";",
+					"  var keyStr = \"ABCDEFGHIJKLMNOP\" +",
+					"    \"QRSTUVWXYZabcdef\" +",
+					"    \"ghijklmnopqrstuv\" +",
+					"    \"wxyz0123456789+/\" +",
+					"    \"=\";",
 					"",
-					"    var output = \"\";",
-					"    var chr1, chr2, chr3 = \"\";",
-					"    var enc1, enc2, enc3, enc4 = \"\";",
-					"    var i = 0;",
+					"  var output = \"\";",
+					"  var chr1, chr2, chr3 = \"\";",
+					"  var enc1, enc2, enc3, enc4 = \"\";",
+					"  var i = 0;",
 					"",
-					"    do {",
-					"        chr1 = input.charCodeAt(i++);",
-					"        chr2 = input.charCodeAt(i++);",
-					"        chr3 = input.charCodeAt(i++);",
+					"  do {",
+					"    chr1 = input.charCodeAt(i++);",
+					"    chr2 = input.charCodeAt(i++);",
+					"    chr3 = input.charCodeAt(i++);",
 					"",
-					"        enc1 = chr1 >> 2;",
-					"        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);",
-					"        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);",
-					"        enc4 = chr3 & 63;",
+					"    enc1 = chr1 >> 2;",
+					"    enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);",
+					"    enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);",
+					"    enc4 = chr3 & 63;",
 					"",
-					"        if (isNaN(chr2)) {",
-					"        enc3 = enc4 = 64;",
-					"        } else if (isNaN(chr3)) {",
-					"        enc4 = 64;",
-					"        }",
+					"    if (isNaN(chr2)) {",
+					"      enc3 = enc4 = 64;",
+					"    } else if (isNaN(chr3)) {",
+					"      enc4 = 64;",
+					"    }",
 					"",
-					"        output = output +",
-					"        keyStr.charAt(enc1) +",
-					"        keyStr.charAt(enc2) +",
-					"        keyStr.charAt(enc3) +",
-					"        keyStr.charAt(enc4);",
-					"        chr1 = chr2 = chr3 = \"\";",
-					"        enc1 = enc2 = enc3 = enc4 = \"\";",
-					"    } while (i < input.length);",
+					"    output = output +",
+					"      keyStr.charAt(enc1) +",
+					"      keyStr.charAt(enc2) +",
+					"      keyStr.charAt(enc3) +",
+					"      keyStr.charAt(enc4);",
+					"    chr1 = chr2 = chr3 = \"\";",
+					"    enc1 = enc2 = enc3 = enc4 = \"\";",
+					"  } while (i < input.length);",
 					"",
-					"    return output;",
+					"  return output;",
 					"}",
 					"",
 					"// TITLE",
@@ -5891,51 +5944,51 @@
 					"// included in full.",
 					"//",
 					"function isodatetime() {",
-					"    var today = new Date();",
-					"    var year  = today.getYear();",
-					"    if (year < 2000)    // Y2K Fix, Isaac Powell",
+					"  var today = new Date();",
+					"  var year = today.getYear();",
+					"  if (year < 2000)    // Y2K Fix, Isaac Powell",
 					"    year = year + 1900; // http://onyx.idbsu.edu/~ipowell",
-					"    var month = today.getMonth() + 1;",
-					"    var day  = today.getDate();",
-					"    var hour = today.getHours();",
-					"    var hourUTC = today.getUTCHours();",
-					"    var diff = hour - hourUTC;",
-					"    if(diff > 12) diff -= 24; // Fix the problem for town with real negative diff",
-					"    if(diff <= -12) diff += 24; // Fix the problem for town with real positive diff",
-					"    var hourdifference = Math.abs(diff);",
-					"    var minute = today.getMinutes();",
-					"    var minuteUTC = today.getUTCMinutes();",
-					"    var minutedifference;",
-					"    var second = today.getSeconds();",
-					"    var timezone;",
-					"    if (minute != minuteUTC && minuteUTC < 30 && diff < 0) { hourdifference--; }",
-					"    if (minute != minuteUTC && minuteUTC > 30 && diff > 0) { hourdifference--; }",
-					"    if (minute != minuteUTC) {",
+					"  var month = today.getMonth() + 1;",
+					"  var day = today.getDate();",
+					"  var hour = today.getHours();",
+					"  var hourUTC = today.getUTCHours();",
+					"  var diff = hour - hourUTC;",
+					"  if (diff > 12) diff -= 24; // Fix the problem for town with real negative diff",
+					"  if (diff <= -12) diff += 24; // Fix the problem for town with real positive diff",
+					"  var hourdifference = Math.abs(diff);",
+					"  var minute = today.getMinutes();",
+					"  var minuteUTC = today.getUTCMinutes();",
+					"  var minutedifference;",
+					"  var second = today.getSeconds();",
+					"  var timezone;",
+					"  if (minute != minuteUTC && minuteUTC < 30 && diff < 0) { hourdifference--; }",
+					"  if (minute != minuteUTC && minuteUTC > 30 && diff > 0) { hourdifference--; }",
+					"  if (minute != minuteUTC) {",
 					"    minutedifference = \":30\";",
-					"    }",
-					"    else {",
+					"  }",
+					"  else {",
 					"    minutedifference = \":00\";",
-					"    }",
-					"    if (hourdifference < 10) {",
+					"  }",
+					"  if (hourdifference < 10) {",
 					"    timezone = \"0\" + hourdifference + minutedifference;",
-					"    }",
-					"    else {",
+					"  }",
+					"  else {",
 					"    timezone = \"\" + hourdifference + minutedifference;",
-					"    }",
-					"    if (diff < 0) {",
+					"  }",
+					"  if (diff < 0) {",
 					"    timezone = \"-\" + timezone;",
-					"    }",
-					"    else {",
+					"  }",
+					"  else {",
 					"    timezone = \"+\" + timezone;",
-					"    }",
-					"    if (month <= 9) month = \"0\" + month;",
-					"    if (day <= 9) day = \"0\" + day;",
-					"    if (hour <= 9) hour = \"0\" + hour;",
-					"    if (minute <= 9) minute = \"0\" + minute;",
-					"    if (second <= 9) second = \"0\" + second;",
-					"    time = year + \"-\" + month + \"-\" + day + \"T\"",
+					"  }",
+					"  if (month <= 9) month = \"0\" + month;",
+					"  if (day <= 9) day = \"0\" + day;",
+					"  if (hour <= 9) hour = \"0\" + hour;",
+					"  if (minute <= 9) minute = \"0\" + minute;",
+					"  if (second <= 9) second = \"0\" + second;",
+					"  time = year + \"-\" + month + \"-\" + day + \"T\"",
 					"    + hour + \":\" + minute + \":\" + second + timezone;",
-					"    return time;",
+					"  return time;",
 					"}",
 					"",
 					"// (C) 2005 Victor R. Ruiz <victor*sixapart.com>",
@@ -5954,45 +6007,43 @@
 					"//",
 					"",
 					"function wsse(Password) {",
-					"    var PasswordDigest, Nonce, Created;",
-					"    var r = new Array;",
+					"  var PasswordDigest, Nonce, Created;",
+					"  var r = new Array;",
 					"",
-					"    nonceEncoded = hex_sha1(isodatetime() + String(Math.random()) + 'There is more than words');",
-					"    Created = isodatetime();",
-					"    PasswordDigest = encode64(hex_sha1(nonceEncoded + Created + Password));",
+					"  nonceEncoded = hex_sha1(isodatetime() + String(Math.random()) + 'There is more than words');",
+					"  Created = isodatetime();",
+					"  PasswordDigest = encode64(hex_sha1(nonceEncoded + Created + Password));",
 					"",
-					"    r[0] = nonceEncoded;",
-					"    r[1] = Created;",
-					"    r[2] = PasswordDigest;",
-					"    return r;",
+					"  r[0] = nonceEncoded;",
+					"  r[1] = Created;",
+					"  r[2] = PasswordDigest;",
+					"  return r;",
 					"}",
 					"",
 					"function wsseHeader(Username, Password) {",
-					"    var w = wsse(Password);",
-					"    var header = 'UsernameToken Username=\"' + Username + '\", PasswordDigest=\"' + w[2] + '\", Created=\"' + w[1] + '\", Nonce=\"' + w[0] + '\"';",
-					"    return header;",
+					"  var w = wsse(Password);",
+					"  var header = 'UsernameToken Username=\"' + Username + '\", PasswordDigest=\"' + w[2] + '\", Created=\"' + w[1] + '\", Nonce=\"' + w[0] + '\"';",
+					"  return header;",
 					"}",
 					"",
 					"//generate the header and set it in the environment",
 					"pm.environment.set(",
-					"    \"wsse-header\",",
-					"    wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\"))",
+					"  \"wsse-header\",",
+					"  wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\"))",
 					");",
-					"var wsseHeader = wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\")); pm.environment.set(\"wsse-header\", wsseHeader);",
-					""
+					"var wsseHeader = wsseHeader(pm.environment.get(\"wsse-user\"), pm.environment.get(\"wsse-secret\")); pm.environment.set(\"wsse-header\", wsseHeader);"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "5f1c8d60-ba79-4dc6-85bb-fde92efc9c67",
+				"id": "77a1489b-e8d8-450f-b051-1009ccfc3ba0",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
