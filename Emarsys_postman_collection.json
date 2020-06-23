@@ -4927,7 +4927,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connecionName/tables/<:tableName>/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/<:tableName>/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4937,15 +4937,15 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
-								":connecionName",
+								"connection",
+								":connectionName",
 								"tables",
 								"<:tableName>",
 								"records"
 							],
 							"variable": [
 								{
-									"key": "connecionName",
+									"key": "connectionName",
 									"value": ""
 								}
 							]
@@ -4977,7 +4977,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/remove",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records/remove",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4987,7 +4987,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -5032,7 +5032,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/upsert",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records/upsert",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5042,7 +5042,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
