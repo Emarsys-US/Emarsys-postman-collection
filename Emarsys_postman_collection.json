@@ -93,7 +93,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n  \"keyId\": \"3\",\r\n  \"keyValues\": [\r\n    \"example@example.com\"\r\n  ],\r\n  \"fields\": [\r\n    \"1\",\r\n    \"2\",\r\n    \"3\"\r\n  ]\r\n}"
 						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/getdata",
@@ -110,7 +110,7 @@
 								"getdata"
 							]
 						},
-						"description": "Returns the field values for the contacts specified by either their internal IDs or by a custom property.\n\nIt is recommended to use the `id` or `uid` fields to identify contacts in order to avoid conflicts when using a non-unique field, such as `email`."
+						"description": "Returns the field values of the contacts specified by either their internal identifiers or by a custom property.\n\nIt is recommended to use the `id` or `uid` fields to identify contacts in order to avoid conflicts when using a non-unique field, such as `email`."
 					},
 					"response": []
 				},
