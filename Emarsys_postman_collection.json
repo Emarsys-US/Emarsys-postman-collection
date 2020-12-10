@@ -137,7 +137,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/contact?create_if_not_exists={{create_if_not_exists}}",
+							"raw": "https://api.emarsys.net/api/v2/contact/?create_if_not_exists={{create_if_not_exists}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -147,7 +147,8 @@
 							"path": [
 								"api",
 								"v2",
-								"contact"
+								"contact",
+								""
 							],
 							"query": [
 								{
@@ -1862,7 +1863,8 @@
 							"path": [
 								"api",
 								"v2",
-								"email"
+								"email",
+								""
 							],
 							"query": [
 								{
@@ -2967,7 +2969,8 @@
 							"path": [
 								"api",
 								"v2",
-								"folder"
+								"folder",
+								""
 							],
 							"query": [
 								{
@@ -3053,7 +3056,8 @@
 							"path": [
 								"api",
 								"v2",
-								"file"
+								"file",
+								""
 							],
 							"query": [
 								{
@@ -4275,7 +4279,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
+							"raw": "https://api.emarsys.net/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4283,7 +4287,6 @@
 								"net"
 							],
 							"path": [
-								"api",
 								"api",
 								"v2",
 								"programresource"
@@ -4300,6 +4303,43 @@
 							]
 						},
 						"description": "Returns a list of all external services and their resources available in the Automation Center for a customer."
+					},
+					"response": []
+				},
+				{
+					"name": "List Programs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs"
+							]
+						},
+						"description": "Returns a list of all available (not deleted) Automation Center programs for a customer."
 					},
 					"response": []
 				},
@@ -4356,8 +4396,106 @@
 						"description": "Starts the progress of contacts through Automation Center programs at the specified entry point of the selected resource."
 					},
 					"response": []
+				},
+				{
+					"name": "Abort a Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
 				}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/abort",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs",
+								":program_id",
+								"abort"
+							],
+							"variable": [
+								{
+									"key": "program_id",
+									"value": ""
+								}
 			]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs",
+								":program_id",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "program_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Deletes a specified Automation Center program."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Contact and Email Data",
