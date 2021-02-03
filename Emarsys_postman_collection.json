@@ -2421,7 +2421,7 @@
 			]
 		},
 		{
-			"name": "Campaign Launch",
+			"name": "Email Campaign Life Cycle",
 			"description": "",
 			"item": [
 				{
@@ -2562,6 +2562,55 @@
 							]
 						},
 						"description": "Initiates the launch of an existing email campaign. The actual launch takes place once the request is processed.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier. Poll the Get Email Campaign Data endpoint to track the launch progress. Check the `api_status` and `api_error` parameters for the current status.\n\n**Tip:** Configure the recipient segment or contact list using the Create an Email Campaign endpoint.\n\n**Note:** A successful launch request may result in a failed launch, if the campaign is not properly configured. For example, a missing email subject or unspecified recipient list prevents a launch."
+					},
+					"response": []
+				},
+				{
+					"name": "Launch an Email Campaign to Virtual Contacts (Broadcast)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"virtual@contact.com\",\r\n  \"data\": {\r\n    \"global\": {\r\n      \"orderId\": \"123456789\",\r\n      \"orderDate\": \"2019-08-07\",\r\n      \"subject\": \"Test payload\"\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/email/:emailId/broadcast",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"email",
+								":emailId",
+								"broadcast"
+							],
+							"variable": [
+								{
+									"key": "emailId",
+									"description": "The identifier of the campaign.\n\n"
+								}
+							]
+						},
+						"description": "Launches an email campaign to contacts who are not in the Emarsys contact database (virtual contacts).\n\n**Important:** Because no personalization data is available for virtual contacts, the email address and all personalization data must be provided in the payload of the request.\n\n**Note:** You can launch a campaign to a single contact on this endpoint at a time."
 					},
 					"response": []
 				},
@@ -5294,6 +5343,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "wsse-header",
+								"value": "{{wsse-header}}",
+								"type": "text"
 							}
 						],
 						"body": {},
@@ -5770,7 +5824,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://admin.scarabresearch.com/hapi/merchant/{{merchant-id}}/sales-data/api",
+							"raw": "https://admin.scarabresearch.com/hapi/merchant/:merchant-id/sales-data/api",
 							"protocol": "https",
 							"host": [
 								"admin",
@@ -5780,9 +5834,15 @@
 							"path": [
 								"hapi",
 								"merchant",
-								"{{merchant-id}}",
+								":merchant-id",
 								"sales-data",
 								"api"
+							],
+							"variable": [
+								{
+									"key": "merchant-id",
+									"value": ""
+								}
 							]
 						}
 					},
