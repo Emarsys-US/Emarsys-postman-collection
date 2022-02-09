@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "eefccecf-3543-42d1-aadb-0ada233fed51",
-		"name": "SMS Postman",
+		"_postman_id": "ab3149a3-76fa-4e84-a69f-249d6dcc935f",
+		"name": "Emarsys SMS Postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,6 +19,11 @@
 									{
 										"key": "Content-Type",
 										"value": "application/json"
+									},
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -148,6 +153,11 @@
 									{
 										"key": "Content-Type",
 										"value": "application/json"
+									},
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -273,7 +283,13 @@
 							"name": "Get SMS Campaign",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{baseUrl}}/campaigns/:campaignId",
 									"host": [
@@ -286,7 +302,7 @@
 									"variable": [
 										{
 											"key": "campaignId",
-											"value": "Lorem",
+											"value": "lorem",
 											"description": "(Required) "
 										}
 									]
@@ -372,9 +388,15 @@
 					"name": "List SMS Campaigns",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseUrl}}/campaigns?limit=43287432&offset=43287432",
+							"raw": "{{baseUrl}}/campaigns?limit=1&offset=1",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -384,12 +406,12 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "43287432",
+									"value": "1",
 									"description": "(Required) Limits the number of SMS campaigns returned in the list."
 								},
 								{
 									"key": "offset",
-									"value": "43287432",
+									"value": "1",
 									"description": "Used to skip a number of SMS campaigns before results are fetched (remember that campaigns are listed in a *latest first* fashion)."
 								}
 							]
@@ -481,6 +503,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -584,7 +611,13 @@
 			"name": "Query Inbound SMS Messages",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "X-WSSE",
+						"value": "{{wsse-header}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{baseUrl}}/inbound-messages?{limit}=1000&{offset}=0&{startDate}=nothing&{endDate}=now",
 					"host": [
@@ -665,6 +698,35 @@
 					"body": ""
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const crypto_js = require('crypto-js');",
+					"",
+					"var ts = (new Date()).toISOString();",
+					"",
+					"var nonce = crypto_js.lib.WordArray.random(16).toString(crypto_js.enc.Hex);",
+					"",
+					"var digest = crypto_js.enc.Base64.stringify(crypto_js.enc.Utf8.parse(crypto_js.SHA1(nonce + ts + pm.environment.get(\"wsse-secret\")).toString(crypto_js.enc.Hex)));",
+					"",
+					"pm.environment.set(\"wsse-header\",'UsernameToken Username=\"' + pm.environment.get(\"wsse-user\") + '\", PasswordDigest=\"' + digest + '\", Created=\"' + ts + '\", nonce=\"' + nonce + '\"');",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
