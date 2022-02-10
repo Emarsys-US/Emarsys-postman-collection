@@ -131,78 +131,7 @@
 								},
 								"description": "Returns the SMS campaign with the specified campaign ID."
 							},
-							"response": [
-								{
-									"name": "Untitled Example",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/campaigns/:campaignId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"campaigns",
-												":campaignId"
-											],
-											"variable": [
-												{
-													"key": "campaignId",
-													"value": "Lorem",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "*/*"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"name": "Untitled Example",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/campaigns/:campaignId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"campaigns",
-												":campaignId"
-											],
-											"variable": [
-												{
-													"key": "campaignId",
-													"value": "Lorem",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"status": "Internal Server Error",
-									"code": 500,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "*/*"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
+							"response": []
 						}
 					]
 				},
@@ -306,8 +235,8 @@
 					],
 					"query": [
 						{
-							"value": "1000",
 							"key": "limit",
+							"value": "500",
 							"description": "The maximum number of inbound SMS  fetched by request."
 						},
 						{
