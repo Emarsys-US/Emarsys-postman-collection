@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2255e8a1-7cee-4716-801a-20e1e33b073b",
-		"name": "dev-updates Emarsys Developer Hub - AMER Sol Arc Edits",
+		"name": "Emarsys - Suite and Sales APIs",
 		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
