@@ -1,14 +1,13 @@
 {
 	"info": {
-		"_postman_id": "3803f16b-3deb-4b94-93b5-422994043e10",
-		"name": "Emarsys Developer Hub - AMER Sol Arc Edits",
+		"_postman_id": "2255e8a1-7cee-4716-801a-20e1e33b073b",
+		"name": "dev-updates Emarsys Developer Hub - AMER Sol Arc Edits",
 		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Contacts",
-			"description": "",
 			"item": [
 				{
 					"name": "List Contact Data",
@@ -28,10 +27,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/query?{fieldId}={{{fieldId}}}&return={{return}}&excludeempty={{excludeempty}}&offset=0&limit=10000",
 							"protocol": "https",
@@ -93,10 +88,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"keyId\": \"3\",\r\n  \"keyValues\": [\r\n    \"example@example.com\"\r\n  ],\r\n  \"fields\": [\r\n    \"1\",\r\n    \"2\",\r\n    \"3\"\r\n  ]\r\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/contact/getdata",
+							"raw": "https://api.emarsys.net/api/v2/getdata",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -106,7 +101,6 @@
 							"path": [
 								"api",
 								"v2",
-								"contact",
 								"getdata"
 							]
 						},
@@ -137,7 +131,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/contact/?create_if_not_exists={{create_if_not_exists}}",
+							"raw": "https://api.emarsys.net/api/v2/contact?create_if_not_exists={{create_if_not_exists}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -147,8 +141,7 @@
 							"path": [
 								"api",
 								"v2",
-								"contact",
-								""
+								"contact"
 							],
 							"query": [
 								{
@@ -260,10 +253,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/query/:keyId=:keyValue",
 							"protocol": "https",
@@ -281,7 +270,8 @@
 							],
 							"variable": [
 								{
-									"key": "keyId=:keyValue"
+									"key": "keyId=:keyValue",
+									"type": "any"
 								}
 							]
 						},
@@ -375,7 +365,6 @@
 		},
 		{
 			"name": "Fields",
-			"description": "",
 			"item": [
 				{
 					"name": "List Available Fields",
@@ -395,10 +384,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/field/translate/:languageId",
 							"protocol": "https",
@@ -416,7 +401,8 @@
 							],
 							"variable": [
 								{
-									"key": "languageId"
+									"key": "languageId",
+									"type": "any"
 								}
 							]
 						},
@@ -482,10 +468,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/field/:fieldID/choice/translate/:languageId",
 							"protocol": "https",
@@ -505,10 +487,12 @@
 							],
 							"variable": [
 								{
-									"key": "fieldID"
+									"key": "fieldID",
+									"type": "any"
 								},
 								{
-									"key": "languageId"
+									"key": "languageId",
+									"type": "any"
 								}
 							]
 						},
@@ -534,10 +518,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contact/last_change",
 							"protocol": "https",
@@ -595,7 +575,8 @@
 							],
 							"variable": [
 								{
-									"key": "fieldId"
+									"key": "fieldId",
+									"type": "any"
 								}
 							]
 						},
@@ -607,7 +588,6 @@
 		},
 		{
 			"name": "Contact Lists",
-			"description": "",
 			"item": [
 				{
 					"name": "List Contact Lists",
@@ -627,10 +607,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist",
 							"protocol": "https",
@@ -727,7 +703,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -774,7 +751,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -800,10 +778,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/count",
 							"protocol": "https",
@@ -821,7 +795,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -868,7 +843,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -894,10 +870,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId?offset=0&limit=",
 							"protocol": "https",
@@ -924,7 +896,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -950,10 +923,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/data?fields={{fields}}&limit=&offset=0",
 							"protocol": "https",
@@ -986,7 +955,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -1012,10 +982,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/contactlist/:listId/contacts/:contactId",
 							"protocol": "https",
@@ -1034,10 +1000,12 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								},
 								{
-									"key": "contactId"
+									"key": "contactId",
+									"type": "any"
 								}
 							]
 						},
@@ -1084,7 +1052,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -1131,7 +1100,8 @@
 							],
 							"variable": [
 								{
-									"key": "listId"
+									"key": "listId",
+									"type": "any"
 								}
 							]
 						},
@@ -1143,7 +1113,6 @@
 		},
 		{
 			"name": "Segments",
-			"description": "",
 			"item": [
 				{
 					"name": "List Segments",
@@ -1163,10 +1132,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter",
 							"protocol": "https",
@@ -1243,10 +1208,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/combinedsegments",
 							"protocol": "https",
@@ -1323,10 +1284,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/count",
 							"protocol": "https",
@@ -1345,7 +1302,8 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId"
+									"key": "segmentId",
+									"type": "any"
 								}
 							]
 						},
@@ -1371,10 +1329,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts?limit=&offset=0",
 							"protocol": "https",
@@ -1402,7 +1356,8 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId"
+									"key": "segmentId",
+									"type": "any"
 								}
 							]
 						},
@@ -1428,10 +1383,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/combinedsegments/:combinedSegmentId",
 							"protocol": "https",
@@ -1448,7 +1399,8 @@
 							],
 							"variable": [
 								{
-									"key": "combinedSegmentId"
+									"key": "combinedSegmentId",
+									"type": "any"
 								}
 							]
 						},
@@ -1494,7 +1446,8 @@
 							],
 							"variable": [
 								{
-									"key": "combinedSegmentId"
+									"key": "combinedSegmentId",
+									"type": "any"
 								}
 							]
 						},
@@ -1520,10 +1473,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contact_criteria",
 							"protocol": "https",
@@ -1541,7 +1490,8 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId"
+									"key": "segmentId",
+									"type": "any"
 								}
 							]
 						},
@@ -1567,10 +1517,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/contacts/:contactId",
 							"protocol": "https",
@@ -1589,10 +1535,12 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId"
+									"key": "segmentId",
+									"type": "any"
 								},
 								{
-									"key": "contactId"
+									"key": "contactId",
+									"type": "any"
 								}
 							]
 						},
@@ -1618,10 +1566,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/filter/:segmentId/delete",
 							"protocol": "https",
@@ -1639,7 +1583,8 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId"
+									"key": "segmentId",
+									"type": "any"
 								}
 							]
 						}
@@ -1650,7 +1595,6 @@
 		},
 		{
 			"name": "Contact Sources",
-			"description": "",
 			"item": [
 				{
 					"name": "List Contact Sources",
@@ -1670,10 +1614,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/source",
 							"protocol": "https",
@@ -1750,10 +1690,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/source/:sourceId",
 							"protocol": "https",
@@ -1770,7 +1706,8 @@
 							],
 							"variable": [
 								{
-									"key": "sourceId"
+									"key": "sourceId",
+									"type": "any"
 								}
 							]
 						},
@@ -1782,7 +1719,6 @@
 		},
 		{
 			"name": "Forms",
-			"description": "",
 			"item": [
 				{
 					"name": "List Customer Forms",
@@ -1802,10 +1738,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/form",
 							"protocol": "https",
@@ -1828,7 +1760,6 @@
 		},
 		{
 			"name": "Email Campaigns",
-			"description": "",
 			"item": [
 				{
 					"name": "List Email Campaigns",
@@ -1848,12 +1779,8 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/email/?status={{status}}&launched={{launched}}&contactlist={{contactlist}}&showdeleted={{showdeleted}}&fromdate={{fromdate}}&todate={{todate}}&root_campaign_id={{root_campaign_id}}&template={{template}}&content_type={{content_type}}&campaign_type={{campaign_type}}&parent_campaign_id={{parent_campaign_id}}&behavior_channel={{behavior_channel}}&email_category={{email_category}}",
+							"raw": "https://api.emarsys.net/api/v2/email?status={{status}}&launched={{launched}}&contactlist={{contactlist}}&showdeleted={{showdeleted}}&fromdate={{fromdate}}&todate={{todate}}&root_campaign_id={{root_campaign_id}}&template={{template}}&content_type={{content_type}}&campaign_type={{campaign_type}}&parent_campaign_id={{parent_campaign_id}}&behavior_channel={{behavior_channel}}&email_category={{email_category}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -1863,8 +1790,7 @@
 							"path": [
 								"api",
 								"v2",
-								"email",
-								""
+								"email"
 							],
 							"query": [
 								{
@@ -1983,10 +1909,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId?raw={{raw}}",
 							"protocol": "https",
@@ -2009,7 +1931,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2035,10 +1958,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/language",
 							"protocol": "https",
@@ -2075,10 +1994,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/emailcategory",
 							"protocol": "https",
@@ -2136,7 +2051,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2183,7 +2099,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2236,7 +2153,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2283,7 +2201,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2370,7 +2289,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2421,8 +2341,7 @@
 			]
 		},
 		{
-			"name": "Email Campaign Life Cycle",
-			"description": "",
+			"name": "Campaign Launch",
 			"item": [
 				{
 					"name": "Preview Email Campaign Contents",
@@ -2463,7 +2382,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2510,7 +2430,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2557,60 +2478,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
 						"description": "Initiates the launch of an existing email campaign. The actual launch takes place once the request is processed.\n\n**Important:** This is an asynchronous operation, and may take a couple of minutes to complete. The request initiates a background job and returns an identifier. Poll the Get Email Campaign Data endpoint to track the launch progress. Check the `api_status` and `api_error` parameters for the current status.\n\n**Tip:** Configure the recipient segment or contact list using the Create an Email Campaign endpoint.\n\n**Note:** A successful launch request may result in a failed launch, if the campaign is not properly configured. For example, a missing email subject or unspecified recipient list prevents a launch."
-					},
-					"response": []
-				},
-				{
-					"name": "Launch an Email Campaign to Virtual Contacts (Broadcast)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "X-WSSE",
-								"value": "{{wsse-header}}"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"disabled": true
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"virtual@contact.com\",\r\n  \"data\": {\r\n    \"global\": {\r\n      \"orderId\": \"123456789\",\r\n      \"orderDate\": \"2019-08-07\",\r\n      \"subject\": \"Test payload\"\r\n    }\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "https://api.emarsys.net/api/v2/email/:emailId/broadcast",
-							"protocol": "https",
-							"host": [
-								"api",
-								"emarsys",
-								"net"
-							],
-							"path": [
-								"api",
-								"v2",
-								"email",
-								":emailId",
-								"broadcast"
-							],
-							"variable": [
-								{
-									"key": "emailId",
-									"description": "The identifier of the campaign.\n\n"
-								}
-							]
-						},
-						"description": "Launches an email campaign to contacts who are not in the Emarsys contact database (virtual contacts).\n\n**Important:** Because no personalization data is available for virtual contacts, the email address and all personalization data must be provided in the payload of the request.\n\n**Note:** You can launch a campaign to a single contact on this endpoint at a time."
 					},
 					"response": []
 				},
@@ -2714,10 +2587,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:queryId/responses",
 							"protocol": "https",
@@ -2735,7 +2604,8 @@
 							],
 							"variable": [
 								{
-									"key": "queryId"
+									"key": "queryId",
+									"type": "any"
 								}
 							]
 						},
@@ -2761,10 +2631,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/responsesummary?launch_id={{launch_id}}&start_date={{start_date}}&end_date={{end_date}}",
 							"protocol": "https",
@@ -2796,7 +2662,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2863,10 +2730,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/personalization",
 							"protocol": "https",
@@ -2884,7 +2747,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2931,7 +2795,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -2983,7 +2848,6 @@
 		},
 		{
 			"name": "Media Database",
-			"description": "",
 			"item": [
 				{
 					"name": "List Media Database Folders",
@@ -3003,12 +2867,8 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/folder/?folder={{folder}}",
+							"raw": "https://api.emarsys.net/api/v2/folder?folder={{folder}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -3018,8 +2878,7 @@
 							"path": [
 								"api",
 								"v2",
-								"folder",
-								""
+								"folder"
 							],
 							"query": [
 								{
@@ -3090,12 +2949,8 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/file/?folder={{folder}}",
+							"raw": "https://api.emarsys.net/api/v2/file?folder={{folder}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -3105,8 +2960,7 @@
 							"path": [
 								"api",
 								"v2",
-								"file",
-								""
+								"file"
 							],
 							"query": [
 								{
@@ -3177,10 +3031,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/file/:fileId",
 							"protocol": "https",
@@ -3197,7 +3047,8 @@
 							],
 							"variable": [
 								{
-									"key": "fileId"
+									"key": "fileId",
+									"type": "any"
 								}
 							]
 						},
@@ -3244,7 +3095,8 @@
 							],
 							"variable": [
 								{
-									"key": "fileId"
+									"key": "fileId",
+									"type": "any"
 								}
 							]
 						},
@@ -3256,7 +3108,6 @@
 		},
 		{
 			"name": "Conditional Text Rules",
-			"description": "",
 			"item": [
 				{
 					"name": "List Conditional Text Rules",
@@ -3276,10 +3127,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/condition",
 							"protocol": "https",
@@ -3302,7 +3149,6 @@
 		},
 		{
 			"name": "Email Templates",
-			"description": "",
 			"item": [
 				{
 					"name": "List Email Templates",
@@ -3322,10 +3168,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/templates",
 							"protocol": "https",
@@ -3363,10 +3205,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/templates/:templateId",
 							"protocol": "https",
@@ -3384,7 +3222,8 @@
 							],
 							"variable": [
 								{
-									"key": "templateId"
+									"key": "templateId",
+									"type": "any"
 								}
 							]
 						},
@@ -3396,7 +3235,6 @@
 		},
 		{
 			"name": "Tracked Links",
-			"description": "",
 			"item": [
 				{
 					"name": "List Tracked Links in an Email Campaign",
@@ -3416,10 +3254,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/trackedlinks/:linkId",
 							"protocol": "https",
@@ -3438,10 +3272,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "linkId"
+									"key": "linkId",
+									"type": "any"
 								}
 							]
 						},
@@ -3489,10 +3325,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "linkId"
+									"key": "linkId",
+									"type": "any"
 								}
 							]
 						},
@@ -3518,10 +3356,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings/linkcategories",
 							"protocol": "https",
@@ -3580,7 +3414,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -3628,10 +3463,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "linkId"
+									"key": "linkId",
+									"type": "any"
 								}
 							]
 						},
@@ -3643,7 +3480,6 @@
 		},
 		{
 			"name": "Sections",
-			"description": "",
 			"item": [
 				{
 					"name": "List Sections in a Template-based Email Campaign",
@@ -3663,10 +3499,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections",
 							"protocol": "https",
@@ -3684,7 +3516,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -3731,7 +3564,8 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								}
 							]
 						},
@@ -3757,10 +3591,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/email/:emailId/sections/:sectionId",
 							"protocol": "https",
@@ -3779,10 +3609,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "sectionId"
+									"key": "sectionId",
+									"type": "any"
 								}
 							]
 						},
@@ -3830,10 +3662,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "sectionId"
+									"key": "sectionId",
+									"type": "any"
 								}
 							]
 						},
@@ -3882,10 +3716,12 @@
 							],
 							"variable": [
 								{
-									"key": "emailId"
+									"key": "emailId",
+									"type": "any"
 								},
 								{
-									"key": "sectionId"
+									"key": "sectionId",
+									"type": "any"
 								}
 							]
 						},
@@ -3897,7 +3733,6 @@
 		},
 		{
 			"name": "Mail Stream",
-			"description": "",
 			"item": [
 				{
 					"name": "Query Mail Events",
@@ -3917,10 +3752,6 @@
 								"value": "gzip"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/rtm/mail_events/:eventType?from={{from}}&to={{to}}&email={{email}}&external_id={{external_id}}",
 							"protocol": "https",
@@ -3955,7 +3786,8 @@
 							],
 							"variable": [
 								{
-									"key": "eventType"
+									"key": "eventType",
+									"type": "any"
 								}
 							]
 						},
@@ -4005,7 +3837,8 @@
 							],
 							"variable": [
 								{
-									"key": "mailStreamId"
+									"key": "mailStreamId",
+									"type": "any"
 								}
 							]
 						},
@@ -4017,7 +3850,6 @@
 		},
 		{
 			"name": "External Events",
-			"description": "",
 			"item": [
 				{
 					"name": "List External Events",
@@ -4037,10 +3869,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/event/:eventId",
 							"protocol": "https",
@@ -4057,7 +3885,8 @@
 							],
 							"variable": [
 								{
-									"key": "eventId"
+									"key": "eventId",
+									"type": "any"
 								}
 							]
 						},
@@ -4083,10 +3912,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/event/:eventId/usages",
 							"protocol": "https",
@@ -4105,13 +3930,14 @@
 							"query": [
 								{
 									"key": "",
-									"value": null,
+									"value": "",
 									"disabled": true
 								}
 							],
 							"variable": [
 								{
-									"key": "eventId"
+									"key": "eventId",
+									"type": "any"
 								}
 							]
 						},
@@ -4157,7 +3983,8 @@
 							],
 							"variable": [
 								{
-									"key": "eventId"
+									"key": "eventId",
+									"type": "any"
 								}
 							]
 						},
@@ -4244,7 +4071,8 @@
 							],
 							"variable": [
 								{
-									"key": "eventId"
+									"key": "eventId",
+									"type": "any"
 								}
 							]
 						},
@@ -4291,7 +4119,8 @@
 							],
 							"variable": [
 								{
-									"key": "eventId"
+									"key": "eventId",
+									"type": "any"
 								}
 							]
 						},
@@ -4303,7 +4132,6 @@
 		},
 		{
 			"name": "Programs",
-			"description": "",
 			"item": [
 				{
 					"name": "List Program Resources in Use",
@@ -4323,12 +4151,8 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
+							"raw": "https://api.emarsys.net/api/api/v2/programresource?service_id={{service_id}}&resource_id={{resource_id}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4336,6 +4160,7 @@
 								"net"
 							],
 							"path": [
+								"api",
 								"api",
 								"v2",
 								"programresource"
@@ -4352,43 +4177,6 @@
 							]
 						},
 						"description": "Returns a list of all external services and their resources available in the Automation Center for a customer."
-					},
-					"response": []
-				},
-				{
-					"name": "List Programs",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "X-WSSE",
-								"value": "{{wsse-header}}"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "https://api.emarsys.net/api/v2/ac/programs",
-							"protocol": "https",
-							"host": [
-								"api",
-								"emarsys",
-								"net"
-							],
-							"path": [
-								"api",
-								"v2",
-								"ac",
-								"programs"
-							]
-						},
-						"description": "Returns a list of all available (not deleted) Automation Center programs for a customer."
 					},
 					"response": []
 				},
@@ -4435,120 +4223,23 @@
 							],
 							"variable": [
 								{
-									"key": "nodeType"
+									"key": "nodeType",
+									"type": "any"
 								},
 								{
-									"key": "resourceId"
+									"key": "resourceId",
+									"type": "any"
 								}
 							]
 						},
 						"description": "Starts the progress of contacts through Automation Center programs at the specified entry point of the selected resource."
 					},
 					"response": []
-				},
-				{
-					"name": "Abort a Program",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "X-WSSE",
-								"value": "{{wsse-header}}"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
 				}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/abort",
-							"protocol": "https",
-							"host": [
-								"api",
-								"emarsys",
-								"net"
-							],
-							"path": [
-								"api",
-								"v2",
-								"ac",
-								"programs",
-								":program_id",
-								"abort"
-							],
-							"variable": [
-								{
-									"key": "program_id",
-									"value": ""
-								}
 			]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete a Program",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "X-WSSE",
-								"value": "{{wsse-header}}"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/delete",
-							"protocol": "https",
-							"host": [
-								"api",
-								"emarsys",
-								"net"
-							],
-							"path": [
-								"api",
-								"v2",
-								"ac",
-								"programs",
-								":program_id",
-								"delete"
-							],
-							"variable": [
-								{
-									"key": "program_id",
-									"value": ""
-								}
-							]
-						},
-						"description": "Deletes a specified Automation Center program."
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Contact and Email Data",
-			"description": "",
 			"item": [
 				{
 					"name": "Export Changed Contacts",
@@ -4773,10 +4464,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/export/:exportId",
 							"protocol": "https",
@@ -4793,7 +4480,8 @@
 							],
 							"variable": [
 								{
-									"key": "exportId"
+									"key": "exportId",
+									"type": "any"
 								}
 							]
 						},
@@ -4815,10 +4503,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/export/:exportId/data?offset=0&limit=",
 							"protocol": "https",
@@ -4846,7 +4530,8 @@
 							],
 							"variable": [
 								{
-									"key": "exportId"
+									"key": "exportId",
+									"type": "any"
 								}
 							]
 						},
@@ -4858,7 +4543,6 @@
 		},
 		{
 			"name": "Behavioral Data",
-			"description": "",
 			"item": [
 				{
 					"name": "Store Behavioral Data",
@@ -4904,19 +4588,24 @@
 							],
 							"variable": [
 								{
-									"key": "customerId"
+									"key": "customerId",
+									"type": "any"
 								},
 								{
-									"key": "provider"
+									"key": "provider",
+									"type": "any"
 								},
 								{
-									"key": "channel"
+									"key": "channel",
+									"type": "any"
 								},
 								{
-									"key": "campaignType"
+									"key": "campaignType",
+									"type": "any"
 								},
 								{
-									"key": "eventType"
+									"key": "eventType",
+									"type": "any"
 								}
 							]
 						},
@@ -4928,7 +4617,6 @@
 		},
 		{
 			"name": "Relational Data",
-			"description": "",
 			"item": [
 				{
 					"name": "Query Records in an RDS Table",
@@ -4948,12 +4636,8 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records?{keyField}={{{keyField}}}",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records?{keyField}={{{keyField}}}",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -4963,7 +4647,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -4977,10 +4661,12 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName"
+									"key": "connectionName",
+									"type": "any"
 								},
 								{
-									"key": "tableName"
+									"key": "tableName",
+									"type": "any"
 								}
 							]
 						},
@@ -5011,7 +4697,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5021,7 +4707,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -5029,10 +4715,12 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName"
+									"key": "connectionName",
+									"type": "any"
 								},
 								{
-									"key": "tableName"
+									"key": "tableName",
+									"type": "any"
 								}
 							]
 						},
@@ -5063,7 +4751,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5073,7 +4761,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -5081,10 +4769,12 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName"
+									"key": "connectionName",
+									"type": "any"
 								},
 								{
-									"key": "tableName"
+									"key": "tableName",
+									"type": "any"
 								}
 							]
 						},
@@ -5115,7 +4805,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/<:tableName>/records",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/<:tableName>/records",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5125,7 +4815,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								"<:tableName>",
@@ -5134,7 +4824,8 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": ""
+									"value": "",
+									"type": "string"
 								}
 							]
 						},
@@ -5165,7 +4856,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/remove",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records/remove",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5175,7 +4866,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -5185,11 +4876,13 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": ""
+									"value": "",
+									"type": "string"
 								},
 								{
 									"key": "tableName",
-									"value": ""
+									"value": "",
+									"type": "string"
 								}
 							]
 						},
@@ -5220,7 +4913,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/rds/connections/:connectionName/tables/:tableName/records/upsert",
+							"raw": "https://api.emarsys.net/api/rds/connection/:connectionName/tables/:tableName/records/upsert",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -5230,7 +4923,7 @@
 							"path": [
 								"api",
 								"rds",
-								"connections",
+								"connection",
 								":connectionName",
 								"tables",
 								":tableName",
@@ -5240,11 +4933,13 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": ""
+									"value": "",
+									"type": "string"
 								},
 								{
 									"key": "tableName",
-									"value": ""
+									"value": "",
+									"type": "string"
 								}
 							]
 						},
@@ -5256,7 +4951,6 @@
 		},
 		{
 			"name": "Accounts",
-			"description": "",
 			"item": [
 				{
 					"name": "Get Customer Settings",
@@ -5272,7 +4966,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings",
 							"protocol": "https",
@@ -5305,7 +4998,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/query/:administratorId",
 							"protocol": "https",
@@ -5323,7 +5015,8 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId"
+									"key": "administratorId",
+									"type": "any"
 								}
 							]
 						},
@@ -5343,14 +5036,8 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
-							},
-							{
-								"key": "wsse-header",
-								"value": "{{wsse-header}}",
-								"type": "text"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator",
 							"protocol": "https",
@@ -5440,7 +5127,8 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId"
+									"key": "administratorId",
+									"type": "any"
 								}
 							]
 						},
@@ -5462,7 +5150,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/:administratorId/delete",
 							"protocol": "https",
@@ -5480,7 +5167,8 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId"
+									"key": "administratorId",
+									"type": "any"
 								}
 							]
 						},
@@ -5502,7 +5190,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getaccesslevels",
 							"protocol": "https",
@@ -5557,7 +5244,8 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId"
+									"key": "administratorId",
+									"type": "any"
 								}
 							]
 						},
@@ -5579,7 +5267,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getinterfacelanguages",
 							"protocol": "https",
@@ -5613,7 +5300,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/administrator/getstartpages",
 							"protocol": "https",
@@ -5637,7 +5323,6 @@
 		},
 		{
 			"name": "Keys",
-			"description": "",
 			"item": [
 				{
 					"name": "List Keys in the Keyring",
@@ -5653,7 +5338,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/keyring/keys",
 							"protocol": "https",
@@ -5687,7 +5371,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/settings/keyring/keys/:keyId",
 							"protocol": "https",
@@ -5706,7 +5389,8 @@
 							],
 							"variable": [
 								{
-									"key": "keyId"
+									"key": "keyId",
+									"type": "any"
 								}
 							]
 						},
@@ -5765,7 +5449,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://api.emarsys.net/api/v2/keyring/keys/:keyId/delete",
 							"protocol": "https",
@@ -5784,7 +5467,8 @@
 							],
 							"variable": [
 								{
-									"key": "keyId"
+									"key": "keyId",
+									"type": "any"
 								}
 							]
 						},
@@ -5795,7 +5479,7 @@
 			]
 		},
 		{
-			"name": "Scarab Endpoints",
+			"name": "Sales Data",
 			"item": [
 				{
 					"name": "Sales Data API",
@@ -5804,7 +5488,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "bearer {{token}}",
+								"value": "{{sales-bearer-token}}",
 								"type": "text"
 							},
 							{
@@ -5816,15 +5500,14 @@
 								"key": "Accept",
 								"value": "text/plain",
 								"type": "text"
-							},
-							{
-								"key": "data-binary",
-								"value": "{{path to file}}",
-								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
 						"url": {
-							"raw": "https://admin.scarabresearch.com/hapi/merchant/:merchant-id/sales-data/api",
+							"raw": "https://admin.scarabresearch.com/hapi/merchant/{{sales-merchant-id}}/sales-data/api",
 							"protocol": "https",
 							"host": [
 								"admin",
@@ -5834,15 +5517,9 @@
 							"path": [
 								"hapi",
 								"merchant",
-								":merchant-id",
+								"{{sales-merchant-id}}",
 								"sales-data",
 								"api"
-							],
-							"variable": [
-								{
-									"key": "merchant-id",
-									"value": ""
-								}
 							]
 						}
 					},
@@ -5855,7 +5532,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "81570124-7a9a-442c-9d84-58f9520ab076",
 				"type": "text/javascript",
 				"exec": [
 					"const crypto_js = require('crypto-js');",
@@ -5867,13 +5543,13 @@
 					"var digest = crypto_js.enc.Base64.stringify(crypto_js.enc.Utf8.parse(crypto_js.SHA1(nonce + ts + pm.environment.get(\"wsse-secret\")).toString(crypto_js.enc.Hex)));",
 					"",
 					"pm.environment.set(\"wsse-header\",'UsernameToken Username=\"' + pm.environment.get(\"wsse-user\") + '\", PasswordDigest=\"' + digest + '\", Created=\"' + ts + '\", nonce=\"' + nonce + '\"');",
-					""]
+					""
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "77a1489b-e8d8-450f-b051-1009ccfc3ba0",
 				"type": "text/javascript",
 				"exec": [
 					""
