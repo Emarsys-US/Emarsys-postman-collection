@@ -5,22 +5,22 @@ This repo provides updates to the Emarsys Postman collections for:
 - SMS
 
 The original collections for each can be found here:
-- [Suite][https://raw.githubusercontent.com/emartech/developer-hub-public-assets/master/resources/EmarsysV2PostmanCollection.json]
-- [Loyalty V3][https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/Loyalty%20Contact%20API%20v0.3.1.postman_collection%20(1).json]
-- [SMS][https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/SMS%20Postman.postman_collection.json]
-- [Loyallty v2 -deprecated-][https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/LoyaltyPostmanCollection.json]
+- [Suite](https://raw.githubusercontent.com/emartech/developer-hub-public-assets/master/resources/EmarsysV2PostmanCollection.json)
+- [Loyalty V3](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/Loyalty%20Contact%20API%20v0.3.1.postman_collection%20(1).json)
+- [SMS](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/SMS%20Postman.postman_collection.json)
+- [Loyallty v2 -deprecated-](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/LoyaltyPostmanCollection.json)
 
 ## How to install
 1. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
 1. Download this repository by clicking on the Green "Code" button, then "Download Zip"
 1. Double-click on the .zip file to extract those files
-1. With Postman installed and the collections downloaded, follow (this guide to import the collections into Postman)[https://learning.postman.com/docs/getting-started/importing-and-exporting-data/]
+1. With Postman installed and the collections downloaded, follow (this guide to import the collections into Postman)(https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)
 
 ## Configuration
 
 This version of the Postman collections use Postman Environment Variables to manage the credentials for the account(s) you work with.
 
-[This guide goes over how to create those environments][https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments]
+[This guide goes over how to create those environments](https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments)
 
 The required variables in your environment will depend on which APIs you use:
 
