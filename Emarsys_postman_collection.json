@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2255e8a1-7cee-4716-801a-20e1e33b073b",
+		"_postman_id": "c1150cf9-5973-4ec7-9e30-0374fc5d6e3a",
 		"name": "Emarsys - Suite and Sales APIs",
 		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -270,8 +270,7 @@
 							],
 							"variable": [
 								{
-									"key": "keyId=:keyValue",
-									"type": "any"
+									"key": "keyId=:keyValue"
 								}
 							]
 						},
@@ -401,8 +400,7 @@
 							],
 							"variable": [
 								{
-									"key": "languageId",
-									"type": "any"
+									"key": "languageId"
 								}
 							]
 						},
@@ -487,12 +485,10 @@
 							],
 							"variable": [
 								{
-									"key": "fieldID",
-									"type": "any"
+									"key": "fieldID"
 								},
 								{
-									"key": "languageId",
-									"type": "any"
+									"key": "languageId"
 								}
 							]
 						},
@@ -575,8 +571,7 @@
 							],
 							"variable": [
 								{
-									"key": "fieldId",
-									"type": "any"
+									"key": "fieldId"
 								}
 							]
 						},
@@ -703,8 +698,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -751,8 +745,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -795,8 +788,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -843,8 +835,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -896,8 +887,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -955,8 +945,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -1000,12 +989,10 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								},
 								{
-									"key": "contactId",
-									"type": "any"
+									"key": "contactId"
 								}
 							]
 						},
@@ -1052,8 +1039,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -1100,8 +1086,7 @@
 							],
 							"variable": [
 								{
-									"key": "listId",
-									"type": "any"
+									"key": "listId"
 								}
 							]
 						},
@@ -1302,8 +1287,7 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId",
-									"type": "any"
+									"key": "segmentId"
 								}
 							]
 						},
@@ -1356,8 +1340,7 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId",
-									"type": "any"
+									"key": "segmentId"
 								}
 							]
 						},
@@ -1399,8 +1382,7 @@
 							],
 							"variable": [
 								{
-									"key": "combinedSegmentId",
-									"type": "any"
+									"key": "combinedSegmentId"
 								}
 							]
 						},
@@ -1446,8 +1428,7 @@
 							],
 							"variable": [
 								{
-									"key": "combinedSegmentId",
-									"type": "any"
+									"key": "combinedSegmentId"
 								}
 							]
 						},
@@ -1490,8 +1471,7 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId",
-									"type": "any"
+									"key": "segmentId"
 								}
 							]
 						},
@@ -1535,12 +1515,10 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId",
-									"type": "any"
+									"key": "segmentId"
 								},
 								{
-									"key": "contactId",
-									"type": "any"
+									"key": "contactId"
 								}
 							]
 						},
@@ -1583,8 +1561,7 @@
 							],
 							"variable": [
 								{
-									"key": "segmentId",
-									"type": "any"
+									"key": "segmentId"
 								}
 							]
 						}
@@ -1706,8 +1683,7 @@
 							],
 							"variable": [
 								{
-									"key": "sourceId",
-									"type": "any"
+									"key": "sourceId"
 								}
 							]
 						},
@@ -1931,8 +1907,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2051,8 +2026,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2099,8 +2073,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2153,8 +2126,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2201,8 +2173,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2289,8 +2260,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2382,8 +2352,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2430,8 +2399,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2478,8 +2446,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2604,8 +2571,7 @@
 							],
 							"variable": [
 								{
-									"key": "queryId",
-									"type": "any"
+									"key": "queryId"
 								}
 							]
 						},
@@ -2662,8 +2628,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2747,8 +2712,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -2795,8 +2759,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -3047,8 +3010,7 @@
 							],
 							"variable": [
 								{
-									"key": "fileId",
-									"type": "any"
+									"key": "fileId"
 								}
 							]
 						},
@@ -3095,8 +3057,7 @@
 							],
 							"variable": [
 								{
-									"key": "fileId",
-									"type": "any"
+									"key": "fileId"
 								}
 							]
 						},
@@ -3222,8 +3183,7 @@
 							],
 							"variable": [
 								{
-									"key": "templateId",
-									"type": "any"
+									"key": "templateId"
 								}
 							]
 						},
@@ -3272,12 +3232,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "linkId",
-									"type": "any"
+									"key": "linkId"
 								}
 							]
 						},
@@ -3325,12 +3283,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "linkId",
-									"type": "any"
+									"key": "linkId"
 								}
 							]
 						},
@@ -3414,8 +3370,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -3463,12 +3418,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "linkId",
-									"type": "any"
+									"key": "linkId"
 								}
 							]
 						},
@@ -3516,8 +3469,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -3564,8 +3516,7 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								}
 							]
 						},
@@ -3609,12 +3560,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "sectionId",
-									"type": "any"
+									"key": "sectionId"
 								}
 							]
 						},
@@ -3662,12 +3611,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "sectionId",
-									"type": "any"
+									"key": "sectionId"
 								}
 							]
 						},
@@ -3716,12 +3663,10 @@
 							],
 							"variable": [
 								{
-									"key": "emailId",
-									"type": "any"
+									"key": "emailId"
 								},
 								{
-									"key": "sectionId",
-									"type": "any"
+									"key": "sectionId"
 								}
 							]
 						},
@@ -3786,8 +3731,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventType",
-									"type": "any"
+									"key": "eventType"
 								}
 							]
 						},
@@ -3837,8 +3781,7 @@
 							],
 							"variable": [
 								{
-									"key": "mailStreamId",
-									"type": "any"
+									"key": "mailStreamId"
 								}
 							]
 						},
@@ -3885,8 +3828,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"type": "any"
+									"key": "eventId"
 								}
 							]
 						},
@@ -3936,8 +3878,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"type": "any"
+									"key": "eventId"
 								}
 							]
 						},
@@ -3983,8 +3924,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"type": "any"
+									"key": "eventId"
 								}
 							]
 						},
@@ -4071,8 +4011,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"type": "any"
+									"key": "eventId"
 								}
 							]
 						},
@@ -4119,8 +4058,7 @@
 							],
 							"variable": [
 								{
-									"key": "eventId",
-									"type": "any"
+									"key": "eventId"
 								}
 							]
 						},
@@ -4133,6 +4071,141 @@
 		{
 			"name": "Programs",
 			"item": [
+				{
+					"name": "List Programs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs"
+							]
+						},
+						"description": "Returns a list of all available (not deleted) Automation Center programs for a customer."
+					},
+					"response": []
+				},
+				{
+					"name": "Abort a Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/abort",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs",
+								":program_id",
+								"abort"
+							],
+							"variable": [
+								{
+									"key": "program_id",
+									"value": "a"
+								}
+							]
+						},
+						"description": "Abort the specified Automation Center program."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.emarsys.net/api/v2/ac/programs/:program_id/delete",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emarsys",
+								"net"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ac",
+								"programs",
+								":program_id",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "program_id",
+									"value": null
+								}
+							]
+						},
+						"description": "Deletes the specified Automation Center program."
+					},
+					"response": []
+				},
 				{
 					"name": "List Program Resources in Use",
 					"request": {
@@ -4223,12 +4296,10 @@
 							],
 							"variable": [
 								{
-									"key": "nodeType",
-									"type": "any"
+									"key": "nodeType"
 								},
 								{
-									"key": "resourceId",
-									"type": "any"
+									"key": "resourceId"
 								}
 							]
 						},
@@ -4480,8 +4551,7 @@
 							],
 							"variable": [
 								{
-									"key": "exportId",
-									"type": "any"
+									"key": "exportId"
 								}
 							]
 						},
@@ -4530,8 +4600,7 @@
 							],
 							"variable": [
 								{
-									"key": "exportId",
-									"type": "any"
+									"key": "exportId"
 								}
 							]
 						},
@@ -4588,24 +4657,19 @@
 							],
 							"variable": [
 								{
-									"key": "customerId",
-									"type": "any"
+									"key": "customerId"
 								},
 								{
-									"key": "provider",
-									"type": "any"
+									"key": "provider"
 								},
 								{
-									"key": "channel",
-									"type": "any"
+									"key": "channel"
 								},
 								{
-									"key": "campaignType",
-									"type": "any"
+									"key": "campaignType"
 								},
 								{
-									"key": "eventType",
-									"type": "any"
+									"key": "eventType"
 								}
 							]
 						},
@@ -4661,12 +4725,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"type": "any"
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"type": "any"
+									"key": "tableName"
 								}
 							]
 						},
@@ -4715,12 +4777,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"type": "any"
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"type": "any"
+									"key": "tableName"
 								}
 							]
 						},
@@ -4769,12 +4829,10 @@
 							],
 							"variable": [
 								{
-									"key": "connectionName",
-									"type": "any"
+									"key": "connectionName"
 								},
 								{
-									"key": "tableName",
-									"type": "any"
+									"key": "tableName"
 								}
 							]
 						},
@@ -4824,8 +4882,7 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": "",
-									"type": "string"
+									"value": ""
 								}
 							]
 						},
@@ -4876,13 +4933,11 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": "",
-									"type": "string"
+									"value": ""
 								},
 								{
 									"key": "tableName",
-									"value": "",
-									"type": "string"
+									"value": ""
 								}
 							]
 						},
@@ -4933,13 +4988,11 @@
 							"variable": [
 								{
 									"key": "connectionName",
-									"value": "",
-									"type": "string"
+									"value": ""
 								},
 								{
 									"key": "tableName",
-									"value": "",
-									"type": "string"
+									"value": ""
 								}
 							]
 						},
@@ -5015,8 +5068,7 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId",
-									"type": "any"
+									"key": "administratorId"
 								}
 							]
 						},
@@ -5127,8 +5179,7 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId",
-									"type": "any"
+									"key": "administratorId"
 								}
 							]
 						},
@@ -5167,8 +5218,7 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId",
-									"type": "any"
+									"key": "administratorId"
 								}
 							]
 						},
@@ -5244,8 +5294,7 @@
 							],
 							"variable": [
 								{
-									"key": "administratorId",
-									"type": "any"
+									"key": "administratorId"
 								}
 							]
 						},
@@ -5389,8 +5438,7 @@
 							],
 							"variable": [
 								{
-									"key": "keyId",
-									"type": "any"
+									"key": "keyId"
 								}
 							]
 						},
@@ -5467,8 +5515,7 @@
 							],
 							"variable": [
 								{
-									"key": "keyId",
-									"type": "any"
+									"key": "keyId"
 								}
 							]
 						},
