@@ -11,8 +11,8 @@ The original collections for each can be found here:
 - [Loyallty v2 -deprecated-](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/LoyaltyPostmanCollection.json)
 
 ## How to install
-1. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
-1. Download this repository by clicking on the Green "Code" button, then "Download Zip"
+1. First, make sure you have Postman installed. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
+1. Download this repository by clicking on the Green "Code" button at the top of this page, then "Download Zip"
 1. Double-click on the .zip file to extract those files
 1. With Postman installed and the collections downloaded, follow [this guide to import the collections into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)
 
