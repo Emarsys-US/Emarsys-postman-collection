@@ -12,15 +12,30 @@ The original collections for each can be found here:
 
 ## How to install
 1. First, make sure you have Postman installed. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
-1. Download this repository by clicking on the Green "Code" button at the top of this page, then "Download Zip"
-1. Double-click on the .zip file to extract those files
-1. With Postman installed and the collections downloaded, follow [this guide to import the collections into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)
+1. Download this repository by clicking on the Green "Code" button at the top of this page, then "Download Zip":
+  ![Graphic displaying the location of the "code" and "download ZIP" buttons on the current github page](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/github-download-steps.png)
+3. Extract the files from the .zip folder
+4. With Postman installed and the collections downloaded, click on the import button in the top-left:
+  ![Postman import button](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/import-button.png)
+1. Select The upload files option:
+    ![Postman upload files option](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/upload-files-button.png)
+1. Select each of the files from the package (The readme.md is okay to select too, but isn't necessary)
+    ![Postman file selector with all files from package highlighted](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/file-selector.png)
+1. Then select the import button to confirm, and the package will be fully installed!
+  ![Postman interface displaying all the highlighted files, waiting for confirmation to import](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/fnal-import-button.png)
+ 
+
+
+
 
 ## Configuration
 
 This version of the Postman collections use Postman Environment Variables to manage the credentials for the account(s) you work with.
 
+![A sample of a fully-configured Postman Environment](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/sample-postman-environment.png)
+
 [This guide goes over how to create those environments](https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments)
+
 
 The required variables in your environment will depend on which APIs you use:
 
