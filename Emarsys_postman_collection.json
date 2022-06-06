@@ -3,7 +3,8 @@
 		"_postman_id": "c1150cf9-5973-4ec7-9e30-0374fc5d6e3a",
 		"name": "Emarsys - Suite and Sales APIs",
 		"description": "The Emarsys Developer Hub provides guides, resources, use cases and interactive reference that helps you integrate with the Emarsys Marketing Platform to deliver personal customer interactions across email, mobile, social, SMS, and web.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7129814"
 	},
 	"item": [
 		{
@@ -28,7 +29,6 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/contact/query?{fieldId}={{{fieldId}}}&return={{return}}&excludeempty={{excludeempty}}&offset=0&limit=10000",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -39,28 +39,33 @@
 								"api",
 								"v2",
 								"contact",
-								"query"
+								"query",
+								""
 							],
 							"query": [
 								{
-									"key": "{fieldId}",
-									"value": "{{{fieldId}}}"
+									"key": "return",
+									"value": "3",
+									"description": "(required) The ID of the data field to be returned for each matching contact"
 								},
 								{
-									"key": "return",
-									"value": "{{return}}"
+									"key": "3",
+									"value": "sample-email@email.com",
+									"description": "(optional) An indication of which field to look up, and what the value should be for the field. The \"Key\" parameter will be the Emarsys field you plan to search along, and the \"Value\" will be value that field should be set to for all contacts that are returned"
 								},
 								{
 									"key": "excludeempty",
-									"value": "{{excludeempty}}"
+									"value": "true",
+									"description": "(optional) If true, contacts with a null or empty value in the specified field are not returned.\nNote: Any value except for true is interpreted as false."
 								},
 								{
 									"key": "offset",
-									"value": "0"
+									"value": "0",
+									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "10000"
+									"disabled": true
 								}
 							]
 						},
@@ -91,7 +96,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.emarsys.net/api/v2/getdata",
+							"raw": "https://api.emarsys.net/api/v2/contact/getdata",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -101,6 +106,7 @@
 							"path": [
 								"api",
 								"v2",
+								"contact",
 								"getdata"
 							]
 						},
