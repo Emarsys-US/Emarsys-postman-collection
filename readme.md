@@ -53,3 +53,8 @@ The required variables in your environment will depend on which APIs you use:
 
 ### Loyalty (V2 and V3):
 - loyalty-api-key
+
+## Troubleshooting
+
+### Requests aren't being authenticated, wsse-header value in X-WSSE headers is marked as an "Unresolved Variable"
+This Postman collection will generate the wsse-header variable for you, but sometimes Postman doesn't like it initially. To fix this, simply save what you're doing and restart Postman
