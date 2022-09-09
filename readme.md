@@ -13,16 +13,16 @@ The original collections for each can be found here:
 ## How to install
 1. First, make sure you have Postman installed. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
 1. Download this repository by clicking on the Green "Code" button at the top of this page, then "Download Zip":
-  ![Graphic displaying the location of the "code" and "download ZIP" buttons on the current github page](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/github-download-steps.png)
+  ![Graphic displaying the location of the "code" and "download ZIP" buttons on the current github page](./readme-images/github-download-steps.png)
 3. Extract the files from the .zip folder
 4. With Postman installed and the collections downloaded, click on the import button in the top-left:
-  ![Postman import button](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/import-button.png)
+  ![Postman import button](./readme-images//import-button.png)
 1. Select The upload files option:
-    ![Postman upload files option](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/upload-files-button.png)
-1. Select each of the files from the package (The readme.md is okay to select too, but isn't necessary)
-    ![Postman file selector with all files from package highlighted](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/file-selector.png)
+    ![Postman upload files option](./readme-images/upload-files-button.png)
+1. Select each of the files from the package (The readme.md and readme-images folder are okay to select too, but aren't necessary)
+    ![Postman file selector with all files from package highlighted](./readme-images/file-selector.png)
 1. Then select the import button to confirm, and the package will be fully installed!
-  ![Postman interface displaying all the highlighted files, waiting for confirmation to import](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/fnal-import-button.png)
+  ![Postman interface displaying all the highlighted files, waiting for confirmation to import](./readme-images/final-import-button.png)
  
 
 
@@ -32,7 +32,7 @@ The original collections for each can be found here:
 
 This version of the Postman collections use Postman Environment Variables to manage the credentials for the account(s) you work with.
 
-![A sample of a fully-configured Postman Environment](https://storage.googleapis.com/emarsys-amer-public-resources/postman-collection-samples/sample-postman-environment.png)
+![A sample of a fully-configured Postman Environment](./readme-images/sample-postman-environment.png)
 
 [This guide goes over how to create those environments](https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments)
 
@@ -57,4 +57,5 @@ The required variables in your environment will depend on which APIs you use:
 ## Troubleshooting
 
 ### Requests aren't being authenticated, wsse-header value in X-WSSE headers is marked as an "Unresolved Variable"
-This Postman collection will generate the wsse-header variable for you, but sometimes Postman doesn't like it initially. To fix this, simply save what you're doing and restart Postman
+- This Postman collection will generate the wsse-header variable for you, but sometimes Postman doesn't like it initially. To fix this, simply save what you're doing and restart Postman
+- If restarting doesn't solve the issue, double-check that the API call you're trying to make is from inside the provided environment. The environment itself contains the logic for authenticating requests and generating the X-WSSE header, so a request that is executed outside the context of this environment would have no authentication logic
