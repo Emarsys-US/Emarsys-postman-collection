@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "ab3149a3-76fa-4e84-a69f-249d6dcc935f",
+		"name": "Emarsys SMS Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "campaigns",
+			"item": [
+				{
+					"name": "{campaign Id}",
+					"item": [
+						{
+							"name": "Launch SMS Campaign",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"scheduled\",\n    \"scheduled_to\": \"2022-02-28T08:52:00.000Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/campaigns/:campaignId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"campaigns",
+										":campaignId"
+									],
+									"variable": [
+										{
+											"key": "campaignId",
+											"value": "lorem",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Lets you launch/schedule a *batch* campaign, or cancel its scheduled launch by updating the value of the **status** attribute the following way:\r\n\r\n**1.** To launch the campaign at a specific date (schedule a campaign):\r\n\r\n- {\r\n  \"**status**\": \"*scheduled*\",\r\n  \r\n  \"**scheduled_to**\": \"2018-02-28T13:15:00.000Z\"\r\n}\r\n\r\n**2.** To launch the campaign immediately:\r\n\r\n - {\r\n  \"**status**\": \"*triggered*\"\r\n}\r\n\r\n**3.** To cancel a scheduled launch:\r\n\r\n- {\r\n  \"**status**\": \"*draft*\"\r\n}\r\n___\r\n**Mandatory parameters:**\r\n- **customerId**\r\n- **campaignId**\r\n- **status** (*draft* or *triggered*)\r\n___\r\nCampaigns with **type** *AC* must be triggered/scheduled/canceled through an AC program.\r\n\r\n**Note**: Only campaigns in *scheduled* state can be canceled."
+							},
+							"response": []
+						},
+						{
+							"name": "Update SMS Campaigns",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"batch\",\n    \"title\": \"test\",\n    \"sender\": \"test\",\n    \"message\": \"test\",\n    \"deduplicate_recipients\": true,\n    \"source_type\": \"segment\",\n    \"source_id\": \"100025715\",\n    \"unsubscribe\": {\n        \"enabled\": true,\n        \"title\": \"Unsubscribe\",\n        \"text\": \"Are you sure you want to opt out of our SMS campains?\",\n        \"button_text\": \"Opt-out\",\n        \"after_text\": \"You've been removed from our SMS campaign list.\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/campaigns/:campaignId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"campaigns",
+										":campaignId"
+									],
+									"variable": [
+										{
+											"key": "campaignId",
+											"value": "Lorem",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Lets you update an existing SMS campaign.\n\n---\n**Mandatory parameters**\n\nAt least one of the following:\n\n- **type**: the type can only be changed from *ac* to *batch* if no active AC program uses the campaign\n- **title**\n- **sender**\n-\t**message**\n-\t**deduplicate_recipients**\n-\t**source_type** (**source_type** and **source_id** must be present in the suite in case of *batch* campaigns, and must be *null* or undefined for campaigns with **type** *ac*)\n-\t**source_id**\n-\t**unsubscribe.enabled**\n-\t**unsubscribe.title**\n-\t**unsubscribe.text**\n-\t**unsubscribe.button_text**\n-\t**unsubscribe.after_text**\n\n---\n**Forbidden parameters**\n\nIn order to change the following parameters, a **Launch a Campaign** request must be made:\n-\t**status**\n- **scheduled_to**\n\n---\n**IMPORTANT**\nMake sure the following conditions apply:\n- The recipient source exists in the Suite if **source_type**|**source_id** is updated.\n-\ta campaign can only be updated while it is in either *draft** or *scheduled* state. If the campaign is in *scheduled* state, the **scheduled_to** date must be at least 1 minute in the future.\n- TWIG template syntax is used."
+							},
+							"response": []
+						},
+						{
+							"name": "Get SMS Campaign",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-WSSE",
+										"value": "{{wsse-header}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/campaigns/:campaignId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"campaigns",
+										":campaignId"
+									],
+									"variable": [
+										{
+											"key": "campaignId",
+											"value": "lorem",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Returns the SMS campaign with the specified campaign ID."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List SMS Campaigns",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/campaigns?limit=1&offset=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"campaigns"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1",
+									"description": "(Required) Limits the number of SMS campaigns returned in the list."
+								},
+								{
+									"key": "offset",
+									"value": "1",
+									"description": "Used to skip a number of SMS campaigns before results are fetched (remember that campaigns are listed in a *latest first* fashion)."
+								}
+							]
+						},
+						"description": "Returns a list of ongoing SMS campaigns.\n\n**Example**\n\nhttps://api.emarsys.net/api/sms/campaigns?limit=1000&offset=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Create SMS Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-WSSE",
+								"value": "{{wsse-header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"batch\",\n    \"title\": \"Hello World\",\n    \"sender\": \"test account\",\n    \"message\": \"test message\",\n    \"deduplicate_recipients\": true,\n    \"source_type\": \"contactList\",\n    \"source_id\": \"1234\",\n    \"unsubscribe\": {\n        \"enabled\": true,\n        \"title\": \"Unsubscribe\",\n        \"text\": \"Are you sure you want to opt out of our SMS campaigns?\",\n        \"button_text\": \"Opt-out\",\n        \"after_text\": \"You've been removed from our SMS campaign list.\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/campaigns",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"campaigns"
+							]
+						},
+						"description": "Lets you create an SMS campaign.\n\nMake sure the following conditions apply:\n- You are using all the mandatory parameters;\n- The\trecipient source exists in your Suite (in case of batch SMS sending);\n- **source_type** and **source_id** must be *null* or undefined in case of AC type requests;\n- TWIG template syntax is used."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Query Inbound SMS Messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-WSSE",
+						"value": "{{wsse-header}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "api.emarsys.net/api/sms/inbound-messages?limit=500&offset=10&startDate=&endDate=",
+					"host": [
+						"api",
+						"emarsys",
+						"net"
+					],
+					"path": [
+						"api",
+						"sms",
+						"inbound-messages"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "500",
+							"description": "The maximum number of inbound SMS  fetched by request."
+						},
+						{
+							"key": "offset",
+							"value": "10",
+							"description": "The logic will start fetching after skipping the number of inbound sms messages specified here."
+						},
+						{
+							"key": "startDate",
+							"value": "",
+							"description": "All fetched inbound SMS messages will be newer than the date specified here.\nIt must be URL-encoded."
+						},
+						{
+							"key": "endDate",
+							"value": "",
+							"description": "All fetched inbound SMS messages will be older than the date specified here.\nIt must be URL-encoded."
+						}
+					]
+				},
+				"description": "Fetches inbound SMS messages in **latest first** order.\n\n**Example:**\n\napi.emarsys.net/api/sms/inbound-messages?limit=500&offset=100?startDate=2018-02-28T13%3A15%3A00.000Z&endDate=2018-03-05T00%3A00%3A00.000Z"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const crypto_js = require('crypto-js');",
+					"",
+					"var ts = (new Date()).toISOString();",
+					"",
+					"var nonce = crypto_js.lib.WordArray.random(16).toString(crypto_js.enc.Hex);",
+					"",
+					"var digest = crypto_js.enc.Base64.stringify(crypto_js.enc.Utf8.parse(crypto_js.SHA1(nonce + ts + pm.environment.get(\"wsse-secret\")).toString(crypto_js.enc.Hex)));",
+					"",
+					"pm.environment.set(\"wsse-header\",'UsernameToken Username=\"' + pm.environment.get(\"wsse-user\") + '\", PasswordDigest=\"' + digest + '\", Created=\"' + ts + '\", nonce=\"' + nonce + '\"');",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.emarsys.net/api/sms",
+			"type": "string"
+		}
+	]
+}
