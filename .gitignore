@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+.vscode
+.awscredentials
+.terraform*
+.kubeconfig
+k8s-*-conf
+my_local.kubeconfig.yaml
+ssl/
+vendor/
+node_modules/
+log/
+*.log
+
