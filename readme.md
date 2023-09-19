@@ -19,9 +19,9 @@ The original collections for each can be found here:
   ![Postman import button](./readme-images//import-button.png)
 1. Select The upload files option:
     ![Postman upload files option](./readme-images/upload-files-button.png)
-1. Select each of the files from the package (The readme.md and readme-images folder are okay to select too, but aren't necessary)
+1. Select each of the files from the downloaded package (The readme.md and readme-images folder are okay to select too, but aren't necessary)
     ![Postman file selector with all files from package highlighted](./readme-images/file-selector.png)
-1. Then select the import button to confirm, and the package will be fully installed!
+1. Finally, select the import button to confirm and the package will be fully installed!
   ![Postman interface displaying all the highlighted files, waiting for confirmation to import](./readme-images/final-import-button.png)
  
 
@@ -36,15 +36,17 @@ This version of the Postman collections use Postman Environment Variables to man
 
 [This guide goes over how to create those environments](https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments)
 
+If you work with multiple Emarsys accounts, use a separate Postman Environment for each account.
 
-The required variables in your environment will depend on which APIs you use:
+
+The required variables for your environment will depend on which APIs you use:
 
 ### Suite APIs/ SMS APIs:
 - wsse-user
 - wsse-secret
-  - These are provided when creating an API user in Emarsys
-  - Please make sure your API user has the Permissions selected that are required for the API call you're testing
-  - Note that the value that appears in the APIs is "wsse-header" - this is derived from the other two variables above
+  - These values are provided when creating an API user in Emarsys
+  - Please make sure your API user has the correct Permissions selected in Emarsys to allow for the API call you're testing
+  - Note that the value that gets used in the API calls themselves is "wsse-header" - that value is derived from the other two variables above
 
 ### Sales uploads (part of the Suite APIs):
 - sales-bearer-token
@@ -57,5 +59,5 @@ The required variables in your environment will depend on which APIs you use:
 ## Troubleshooting
 
 ### Requests aren't being authenticated, wsse-header value in X-WSSE headers is marked as an "Unresolved Variable"
-- This Postman collection will generate the wsse-header variable for you, but sometimes Postman doesn't like it initially. To fix this, simply save what you're doing and restart Postman
+- This Postman collection will generate the wsse-header variable for you, but sometimes Postman doesn't see the variables in your environment at immediately. To fix this, simply save what you're doing and restart Postman
 - If restarting doesn't solve the issue, double-check that the API call you're trying to make is from inside the provided environment. The environment itself contains the logic for authenticating requests and generating the X-WSSE header, so a request that is executed outside the context of this environment would have no authentication logic
