@@ -10,6 +10,8 @@ The original collections for each can be found here:
 - [SMS](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/SMS%20Postman.postman_collection.json)
 - [Loyallty v2 -deprecated-](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/LoyaltyPostmanCollection.json)
 
+## For a free alternative to Postman, this collection is also compatible with Bruno, as described [here](#Using-this-collection-with-Bruno).
+
 ## How to install
 1. First, make sure you have Postman installed. These collections are meant to be used with the program Postman, which can be downloaded here: https://www.postman.com/downloads/
 1. Download this repository by clicking on the Green "Code" button at the top of this page, then "Download Zip":
