@@ -4,11 +4,6 @@ This repo provides updates to the Emarsys Postman collections for:
 - Loyalty
 - SMS
 
-The original collections for each can be found here:
-- [Suite](https://raw.githubusercontent.com/emartech/developer-hub-public-assets/master/resources/EmarsysV2PostmanCollection.json)
-- [Loyalty V3](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/Loyalty%20Contact%20API%20v0.3.1.postman_collection%20(1).json)
-- [SMS](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/SMS%20Postman.postman_collection.json)
-- [Loyallty v2 -deprecated-](https://raw.githubusercontent.com/EmarsysDocumentationGists/developer-hub-public-assets/master/resources/LoyaltyPostmanCollection.json)
 
 ## For a free alternative to Postman, this collection is also compatible with Bruno, as described [here](#Using-this-collection-with-Bruno).
 
@@ -55,7 +50,7 @@ The required variables for your environment will depend on which APIs you use:
 - sales-merchant-id
   - Each found in the Predict Data Sources section of your Emarsys account
 
-### Loyalty (V2 and V3):
+### Loyalty:
 - loyalty-api-key
 
 ## Troubleshooting
