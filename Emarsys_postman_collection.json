@@ -2824,16 +2824,16 @@
 							"value": "{{wsse-header}}"
 						},
 						{
-						  "key": "Accept",
-						  "value": "application/json",
-						  "disabled": false,
-						  "type": "default"
+							"key": "Accept",
+							"value": "application/json",
+							"disabled": false,
+							"type": "default"
 						},
 						{
-						  "key": "Content-Type",
-						  "value": "application/json",
-						  "disabled": false,
-						  "type": "default"
+							"key": "Content-Type",
+							"value": "application/json",
+							"disabled": false,
+							"type": "default"
 						}
 					  ],
 					  "auth": null,
