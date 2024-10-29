@@ -2812,9 +2812,69 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Launch a Campaign to virtual contacts (Broadcasts)",
+					"event": [],
+					"request": {
+					  "method": "POST",
+					  "header": [
+						{
+							"key": "X-WSSE",
+							"value": "{{wsse-header}}"
+						},
+						{
+							"key": "Accept",
+							"value": "application/json",
+							"disabled": false,
+							"type": "default"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"disabled": false,
+							"type": "default"
+						}
+					  ],
+					  "auth": null,
+					  "description": "https://dev.emarsys.com/docs/core-api-reference/j6gf5nik4ei7o-launch-an-email-campaign-to-virtual-contacts-broadcast",
+					  "url": {
+						"raw": "https://api.emarsys.net/api/v2/email/:emailId/broadcast",
+						"protocol": "https",
+						"host": [
+						  "api",
+						  "emarsys",
+						  "net"
+						],
+						"path": [
+						  "api",
+						  "v2",
+						  "email",
+						  ":emailId",
+						  "broadcast"
+						],
+						"query": [],
+						"variable": [
+						  {
+							"key": "emailId",
+							"value": ""
+						  }
+						]
+					  },
+					  "body": {
+						"mode": "raw",
+						"options": {
+						  "raw": {
+							"language": "json"
+						  }
+						}
+					  }
+					},
+					"response": []
 				}
 			]
 		},
+		
 		{
 			"name": "Media Database",
 			"item": [
